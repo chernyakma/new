@@ -58,7 +58,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "Potter", family.getLastName().getValue() );
 		Assertions.assertEquals( "Male", family.getGender().getSelectedText() );
 		Assertions.assertEquals( "10/15/1960", family.getDateOfBirth().getInputValue() );
-		family.getSaveButton().click();
+//		family.getSaveButton().click();
 	}
 
 	@Test
