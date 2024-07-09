@@ -73,7 +73,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000192" ).click();
+		getApplication.applicationNumber().getCell( "424000210" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
@@ -113,7 +113,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 			"Screenshot 2024-06-04 171743.png" ) ) );
 
 		ApplicationView note = $( ApplicationView.class ).first();
-		note.threeDotsButton().doubleClick();
+		note.threeDotsButton().click();
 		WebElement noteMenu = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
 		noteMenu.click();
 		Thread.sleep( 3_000 );

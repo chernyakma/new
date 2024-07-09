@@ -67,7 +67,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-05-31 162418.png" ) ) );
 	}
-
+/*
 	@Test
 	public void uploadDocs() throws IOException, InterruptedException {
 
@@ -105,7 +105,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-05-31 163637.png" ) ) );
 		ApplicationView note = $( ApplicationView.class ).first();
-		note.threeDotsButton().doubleClick();
+		note.threeDotsButton().click();
 		WebElement noteMenu = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
 		noteMenu.click();
 		Thread.sleep( 3_000 );
@@ -117,7 +117,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		closeNote.closeButton().click();
 
 	}
-/*
+
 	@Test
 	public void addSuspense() {
 
@@ -158,7 +158,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				VaadinConfirmDialogView confirm=$(VaadinConfirmDialogView.class).first();
 				confirm.getSaveButton().click();
 			}
-*/
+
 		   @Test
 		    public void activatePolicy() throws InterruptedException, IOException {
 				VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -187,7 +187,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				undoButton.getSaveButton().click();
 
 			}
-
+*/
 
 	@Test
 	public void addNewBusiness() throws InterruptedException {

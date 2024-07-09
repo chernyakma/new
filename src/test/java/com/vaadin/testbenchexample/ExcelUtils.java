@@ -1,8 +1,8 @@
 package com.vaadin.testbenchexample;
 
+
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -62,4 +62,3 @@ public class ExcelUtils {
 		return data;
 	}
 }
-

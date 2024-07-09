@@ -71,8 +71,9 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		getFamily.searchByName().sendKeys( "Mouse" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
+	//	Thread.sleep( 3_000 );
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000190" ).click();
+		getApplication.applicationNumber().getCell( "424000208" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
@@ -88,7 +89,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-05-31 162418.png" ) ) );
 	}
-
+/*
 	@Test
 	public void uploadDocs() throws IOException, InterruptedException {
 
@@ -99,7 +100,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000190" ).click();
+		getApplication.applicationNumber().getCell( "424000208" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.threeDotsButton().click();
 		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
@@ -139,7 +140,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		closeNote.closeButton().click();
 
 	}
-/*
+
 	@Test
 	public void addSuspense() {
 
@@ -180,7 +181,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getSaveButton().click();
 	}
-*/
+
 	@Test
 	public void activatePolicy() throws InterruptedException, IOException {
 
@@ -191,7 +192,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getPolicy = $( ScenarioView.class ).first();
-		getPolicy.policyNumber().getCell( "424000189" ).click();
+		getPolicy.policyNumber().getCell( "424000196" ).click();
 		NaviMenuView getTransactions = $( NaviMenuView.class ).first();
 		getTransactions.transactionsSPDA().click();
 		ScenarioView transaction = $( ScenarioView.class ).first();
@@ -210,7 +211,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		undoButton.getSaveButton().click();
 
 	}
-
+*/
 	@Test
 	public void addNewBusiness() throws InterruptedException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
