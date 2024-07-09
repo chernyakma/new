@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.w3c.dom.html.HTMLTableSectionElement;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
@@ -7,6 +8,8 @@ import com.vaadin.flow.component.grid.testbench.GridElement;
 import com.vaadin.flow.component.progressbar.testbench.ProgressBarElement;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.elementsbase.Element;
+
+import javassist.bytecode.stackmap.TypeData;
 
 @Element( "scenario-view" )
 //@Element( "scenario-component" )
@@ -82,8 +85,8 @@ public class ScenarioView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( ProgressBarElement.class ).first();
 	}
-	protected ButtonElement reverseActivateTransactionButtonFPDA(){
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( TestBenchElement.class ).id( "content" ).$( "search-component" ).first().$( ButtonElement.class ).get( 5 );
+	protected ButtonElement reverseActivateTransactionButtonFPRA(){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( TestBenchElement.class ).id( "content" ).$( "search-component" ).first().$( ButtonElement.class ).get( 3 );
 	}
 
 
@@ -91,6 +94,8 @@ public class ScenarioView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( TestBenchElement.class ).id( "content" ).$( "search-component" ).first().$( ButtonElement.class ).get( 3 );
 	}
 
+
+protected WebElement policyStatus() { return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 3 );}
 }
 
 

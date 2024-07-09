@@ -15,7 +15,7 @@ import com.vaadin.testbench.screenshot.ImageFileUtil;
 public class AddNewBusinessFpraIT extends BaseLoginTest {
 
 	@Test
-	public void addIllustration() {
+	public void addIllustration() throws IOException {
 
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
@@ -28,6 +28,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 		addNewBusiness.getProductType().selectByText( "Deferred Annuity" );
 		addNewBusiness.getDepositAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "50000" );
+		Assertions.assertEquals( "50000",addNewBusiness.getDepositAmount().getValue() );
 		addNewBusiness.getInsured().selectItemByIndex( 1 );
 		addNewBusiness.getOkButton().click();
 		IllustrationView illustration = $( IllustrationView.class ).first();
@@ -36,6 +37,8 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		illustration.getAgentNumber().sendKeys( Keys.ENTER );
 		Assertions.assertEquals( "NM001 - Navy Mutual Default Agent", illustration.getAgentNumber().getSelectedText() );
 		illustration.getApplyButton().click();
+		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+			"Screenshot 2024-07-09 163622.png" ) ) );
 		VaadinConfirmDialogView getCanselButton = $( VaadinConfirmDialogView.class ).first();
 		getCanselButton.getDeleteButton().click();
 
@@ -51,7 +54,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000188" ).click();
+		getApplication.applicationNumber().getCell( "424000235" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
@@ -66,8 +69,10 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		iGO.checkIGO().click();
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-05-31 162418.png" ) ) );
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertFalse(getIssueButton.issueButton().isDisplayed()  );
 	}
-/*
+
 	@Test
 	public void uploadDocs() throws IOException, InterruptedException {
 
@@ -78,7 +83,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000188" ).click();
+		getApplication.applicationNumber().getCell( "424000235" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.threeDotsButton().click();
 		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
@@ -102,6 +107,8 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		Thread.sleep( 3_000 );
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertTrue(getIssueButton.issueButton().isDisplayed()  );
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-05-31 163637.png" ) ) );
 		ApplicationView note = $( ApplicationView.class ).first();
@@ -117,7 +124,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		closeNote.closeButton().click();
 
 	}
-
+/*
 	@Test
 	public void addSuspense() {
 
@@ -128,14 +135,16 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000187" ).click();
+		getApplication.applicationNumber().getCell( "424000234" ).click();
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 		addSuspense.suspense().click();
 		ApplicationView addSuspenseButton = $( ApplicationView.class ).first();
 		addSuspenseButton.addSuspense().click();
 		EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
 		suspenseSource.suspenseAmount().sendKeys( "50000" );
+		Assertions.assertEquals( "50000",suspenseSource.suspenseAmount().getValue() );
 		suspenseSource.suspenseSource().selectByText( "Check" );
+		Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
 		suspenseSource.processButton().click();
 
 	}
@@ -150,7 +159,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				getFamily.searchButton().click();
 				getFamily.family().getCell( "Mouse" ).click();
 				ScenarioView getApplication = $( ScenarioView.class ).first();
-				getApplication.applicationNumber().getCell( "424000187" ).click();
+				getApplication.applicationNumber().getCell( "424000234" ).click();
 				NaviMenuView iGO = $(NaviMenuView.class).first();
 				iGO.checkIGO().click();
 				ApplicationView issue=$(ApplicationView.class).first();
@@ -158,7 +167,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				VaadinConfirmDialogView confirm=$(VaadinConfirmDialogView.class).first();
 				confirm.getSaveButton().click();
 			}
-
+*/
 		   @Test
 		    public void activatePolicy() throws InterruptedException, IOException {
 				VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -168,7 +177,9 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				getFamily.searchButton().click();
 				getFamily.family().getCell( "Mouse" ).click();
 				ScenarioView getPolicy = $( ScenarioView.class ).first();
-				getPolicy.policyNumber().getCell(  "424000187").click();
+				getPolicy.policyNumber().getCell(  "424000234").click();
+			   ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+			   Assertions.assertEquals( "Pending",getPolicyStatus.policyStatus().getText() );
 				NaviMenuView getTransactions=$(NaviMenuView.class).first();
 				getTransactions.transactionsFPDR().click();
 				ScenarioView transaction = $(ScenarioView.class).first();
@@ -179,15 +190,16 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				transaction.processInitialPremiumTransactionButton().click();
 				VaadinConfirmDialogView okButton=$(VaadinConfirmDialogView.class).first();
 				okButton.getSaveButton().click();
+			   Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
 				Thread.sleep( 5_000 );
 				Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 					"Screenshot 2024-05-31 142911.png")));
-				transaction.reverseActivateTransactionButtonFPDA().click();
+				transaction.reverseActivateTransactionButtonFPRA().click();
 				VaadinConfirmDialogView undoButton=$(VaadinConfirmDialogView.class).first();
 				undoButton.getSaveButton().click();
 
 			}
-*/
+
 
 	@Test
 	public void addNewBusiness() throws InterruptedException {
@@ -253,8 +265,9 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		suspenseSource.processButton().click();
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
-		ApplicationView issue = $( ApplicationView.class ).first();
-		issue.issueButton().click();
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertTrue( getIssueButton.issueButton().isDisplayed() );
+		getIssueButton.issueButton().click();
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getSaveButton().click();
 		NaviMenuView getTransactions = $( NaviMenuView.class ).first();
@@ -267,6 +280,9 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		transaction.processInitialPremiumTransactionButton().click();
 		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
 		okButton.getSaveButton().click();
+		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
+
 
 	}
 

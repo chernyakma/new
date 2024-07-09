@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
+import com.vaadin.flow.component.grid.testbench.GridElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.elementsbase.Element;
@@ -42,4 +43,5 @@ public class ApplicationView extends TestBenchElement {
 		return $(TestBenchElement.class).id( "viewContent" ).$( "scenario-component" ).first().$(ButtonElement.class).last();
 	}
 
+	protected GridElement missingRequiredDocument() { return $(TestBenchElement.class).id( "viewContent" ).$( "scenario-component" ).first().$(TestBenchElement.class).id("fieldLayout").$("igo-check-page").first().$(TestBenchElement.class).id("pageContent").$(GridElement.class).first();}
 }

@@ -39,7 +39,10 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		illustration.periodCertainYears().selectByText( "15 Year" );
 		illustration.federalTaxWithholdingPercentage().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "10" );
 		illustration.disbursementMethod().selectByText( "ACH Disbursement" );
-		//		illustration.getSaveButton().click();
+		Assertions.assertEquals( "Quarterly",illustration.paymentMode().getSelectedText() );
+		Assertions.assertEquals( "15 Year",illustration.periodCertainYears().getSelectedText() );
+		Assertions.assertEquals( "ACH Disbursement",illustration.disbursementMethod().getSelectedText() );
+	//			illustration.getSaveButton().click();
 
 	}
 
@@ -53,16 +56,18 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.illustrationNumber().getCell( "424000192" ).click();
+		getApplication.illustrationNumber().getCell( "424000226" ).click();
 		NaviMenuView getReport = $( NaviMenuView.class ).first();
 		getReport.getReport().click();
 		IllustrationView apply = $( IllustrationView.class ).first();
 		apply.getApplyButtonReport().click();
+		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+			"Screenshot 2024-07-09 114907.png" ) ) );
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getDeleteButton().click();
 
 	}
-/*
+
 	@Test
 	public void addApplication2() throws IOException, InterruptedException {
 
@@ -73,7 +78,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000210" ).click();
+		getApplication.applicationNumber().getCell( "424000225" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
@@ -111,7 +116,8 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		Thread.sleep( 3_000 );
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-06-04 171743.png" ) ) );
-
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertTrue(getIssueButton.issueButton().isDisplayed()  );
 		ApplicationView note = $( ApplicationView.class ).first();
 		note.threeDotsButton().click();
 		WebElement noteMenu = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
@@ -125,7 +131,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		closeNote.closeButton().click();
 
 	}
-
+/*
 	@Test
 	public void addSuspenseSPIA() {VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
@@ -134,14 +140,16 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000191" ).click();
+		getApplication.applicationNumber().getCell( "424000224" ).click();
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 		addSuspense.suspense().click();
 		ApplicationView addSuspenseButton = $( ApplicationView.class ).first();
 		addSuspenseButton.addSuspense().click();
 		EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
 		suspenseSource.suspenseAmount().sendKeys( "100000" );
+		Assertions.assertEquals( "100000",suspenseSource.suspenseAmount().getValue() );
 		suspenseSource.suspenseSource().selectByText( "Check" );
+		Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
 		suspenseSource.processButton().click();
 	}
 
@@ -155,7 +163,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000191" ).click();
+		getApplication.applicationNumber().getCell( "424000225" ).click();
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		ApplicationView issue = $( ApplicationView.class ).first();
@@ -174,7 +182,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Mouse" ).click();
 		ScenarioView getPolicy = $( ScenarioView.class ).first();
-		getPolicy.policyNumber().getCell( "424000191" ).click();
+		getPolicy.policyNumber().getCell( "424000224" ).click();
 		NaviMenuView getTransactions = $( NaviMenuView.class ).first();
 		getTransactions.transactionsSPIA().click();
 		ScenarioView transaction = $( ScenarioView.class ).first();
@@ -185,6 +193,9 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		transaction.processInitialPremiumTransactionButton().click();
 		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
 		okButton.getSaveButton().click();
+
+		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+		Assertions.assertEquals( "Annuitized",getPolicyStatus.policyStatus().getText() );
 		Thread.sleep( 5_000 );
 			Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 				"Screenshot 2024-06-11 135341.png")));
@@ -263,7 +274,8 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		Thread.sleep( 3_000 );
 		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
 			"Screenshot 2024-06-04 171743.png" ) ) );
-
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertTrue( getIssueButton.issueButton().isDisplayed() );
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 		addSuspense.suspense().click();
 		ApplicationView addSuspenseButton = $( ApplicationView.class ).first();
@@ -287,10 +299,12 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		VaadinConfirmDialogView confirmation = $( VaadinConfirmDialogView.class ).first();
 		confirmation.getSaveButton().click();
 		Thread.sleep( 10_000 );
-
 		transaction.processInitialPremiumTransactionButton().click();
 		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
 		okButton.getSaveButton().click();
+		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+		Assertions.assertEquals( "Annuitized",getPolicyStatus.policyStatus().getText() );
+
 
 	}
 }

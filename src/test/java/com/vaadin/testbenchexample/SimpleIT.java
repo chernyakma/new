@@ -37,7 +37,8 @@ import java.time.Duration;
 	import org.openqa.selenium.JavascriptExecutor;
 
 
-	public class SimpleIT extends BrowserTestBase {
+	public class
+	SimpleIT extends BrowserTestBase {
 
 		//	private Element ByShadow;
 
