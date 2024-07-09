@@ -3,6 +3,7 @@ import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.textfield.testbench.PasswordFieldElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbench.HasStringValueProperty;
+import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.Parameters;
 import com.vaadin.testbench.TestBenchTestCase;
 
@@ -11,13 +12,17 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Before;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 	@Before
 	public void setUp() {
-		setDriver(new ChromeDriver());
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless", "--disable-gpu");
+		setDriver(new ChromeDriver(options));
+//		setDriver(new ChromeDriver());
 		performLogin();
 		Parameters.setScreenshotReferenceDirectory( "src/test/screenshots");
 		Parameters.setScreenshotComparisonTolerance(1.0);
@@ -33,8 +38,8 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	}
 */
 	private void performLogin() {
-		getDriver().get("http://localhost:8080/navy_webui/");
-
+	//	getDriver().get("http://localhost:8080/navy_webui/");
+		getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
 
 		$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");

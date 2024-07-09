@@ -22,6 +22,7 @@ import com.vaadin.flow.component.formlayout.testbench.FormLayoutElement;
 import com.vaadin.flow.component.html.testbench.DivElement;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
+import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBenchElement;
 
 public class AddFamilyIT extends BaseLoginTest {
@@ -34,7 +35,8 @@ public class AddFamilyIT extends BaseLoginTest {
 
 	public void addFamily() {
 
-		getDriver().get( "http://localhost:8080/navy_webui/familyInsured" );
+	//	getDriver().get( "http://localhost:8080/navy_webui/familyInsured" );
+		getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/familyInsured");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
 		family.getGender().selectItemByIndex( 0 );
