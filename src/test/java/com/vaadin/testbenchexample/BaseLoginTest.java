@@ -5,11 +5,14 @@ import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbench.HasStringValueProperty;
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.Parameters;
+import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.TestBenchTestCase;
 
 import org.junit.After;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,10 +22,10 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 	@Before
 	public void setUp() {
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless", "--disable-gpu");
-		setDriver(new ChromeDriver(options));
-//		setDriver(new ChromeDriver());
+    //ChromeOptions options = new ChromeOptions();
+    //options.addArguments("--headless", "--disable-gpu");
+    //setDriver(new ChromeDriver(options));
+		setDriver(new ChromeDriver());
 		performLogin();
 		Parameters.setScreenshotReferenceDirectory( "src/test/screenshots");
 		Parameters.setScreenshotComparisonTolerance(1.0);
@@ -31,19 +34,36 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		Parameters.setScreenshotComparisonCursorDetection(true);
 	}
 
-/*
+
 	@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-*/
+
 	private void performLogin() {
 	//	getDriver().get("http://localhost:8080/navy_webui/");
-		getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
+	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
 
-		$( TextFieldElement.class).first().setValue( "jBond");
-		$( PasswordFieldElement.class).first().setValue( "JBond007");
-		$( ButtonElement.class).first().click();
+
+	//	$( TextFieldElement.class).first().setValue( "jBond");
+	//	$( PasswordFieldElement.class).first().setValue( "JBond007");
+	//	$( ButtonElement.class).first().click();
+		getDriver().get("https://test.navymutual.calcfocus.net/policyadmin/oauth2/login/cognito");
+		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
+		usernameFieldElement.click();
+		usernameFieldElement.sendKeys( "helpdesk" );
+		WebElement passwordFieldElement = findElement( By.id( "signInFormPassword" ));
+		passwordFieldElement.click();
+		passwordFieldElement.sendKeys( "JBond007$" );
+
+	//	WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
+		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
+		loginButton.click();
+
+
+
+
+
 	}
 }
 

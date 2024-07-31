@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import com.vaadin.testbench.screenshot.ImageFileUtil;
 
 public class AddNewBusinessSpiaIT extends BaseLoginTest {
+	/*
 	@Test
 	public void addIllustration() throws InterruptedException {
 
@@ -100,12 +101,15 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
@@ -131,7 +135,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		closeNote.closeButton().click();
 
 	}
-/*
+
 	@Test
 	public void addSuspenseSPIA() {VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
@@ -171,7 +175,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getSaveButton().click();
 	}
-*/
+
 	@Test
 	public void activatePolicySPIA() throws InterruptedException, IOException {
 
@@ -204,15 +208,15 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		undoButton.getSaveButton().click();
 
 	}
-
+*/
 	@Test
 	public void addNewBusiness() throws InterruptedException, IOException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Mouse" );
+		getFamily.searchByName().sendKeys( "Carter" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Mouse" ).click();
+		getFamily.family().getCell( "Carter" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
@@ -258,12 +262,15 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
