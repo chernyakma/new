@@ -34,12 +34,12 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		Parameters.setScreenshotComparisonCursorDetection(true);
 	}
 
-
+/*
 	@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-
+*/
 	private void performLogin() {
 	//	getDriver().get("http://localhost:8080/navy_webui/");
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");

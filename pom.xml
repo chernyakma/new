@@ -215,6 +215,7 @@
             <configuration>
               <includes>
                 <include>AddNewBusinessSpiaIT.java</include>
+                  <include>AddNewBusinessWholeLifeIT.java</include>
                 <include>AddNewBusinessFpraIT.java</include>
                   <include>AddNewBusinessSpdaIT.java</include>
                 <include>BaseLoginTest.java</include>
@@ -226,21 +227,7 @@
           </plugin>
 
             <!-- Maven Surefire Plugin -->
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <version>3.1.2</version>
-              <configuration>
-                <includes>
-                  <include>AddNewBusinessSpiaIT.java</include>
-                  <include>AddNewBusinessFpraIT.java</include>
-                    <include>AddNewBusinessSpdaIT.java</include>
-                    <include>AddNewBusinessFpdaIT.java</include>
-                  <include>BaseLoginTest.java</include>
-                  <include>AddFamilyIT.java</include>
-                </includes>
-              </configuration>
-            </plugin>
+
 
 
     </plugins>

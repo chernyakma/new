@@ -23,6 +23,10 @@ public class IllustrationView extends TestBenchElement {
 	protected ButtonElement getSaveButtonResult(){
 		return $(TestBenchElement.class).id( "viewContent" ).$( "scenario-component" ).first().$(TestBenchElement.class).id( "componentContent" ).$( ButtonElement.class ).get(1);
 	}
+	//WL
+	protected ButtonElement getApplyButtonWL(){
+		return $(TestBenchElement.class).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 6 );
+	}
 	protected ButtonElement getApplyButtonResult(){
 		return $(TestBenchElement.class).id( "viewContent" ).$( "scenario-component" ).first().$(TestBenchElement.class).id( "componentContent" ).$( ButtonElement.class ).get( 3 );
 	}

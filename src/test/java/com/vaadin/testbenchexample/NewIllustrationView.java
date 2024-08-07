@@ -30,6 +30,11 @@ public class NewIllustrationView extends TestBenchElement {
 		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(TextFieldElement.class).id( "DepositAmount" );
 
 	}
+//Whole Life
+	protected TextFieldElement getFaceAmount(){
+		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(TextFieldElement.class).id( "FaceAmount" );
+
+	}
 	protected ButtonElement getOkButton(){
 		return $( ButtonElement.class).first();
 

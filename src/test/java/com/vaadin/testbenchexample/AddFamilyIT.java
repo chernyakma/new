@@ -73,6 +73,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		getFamily.searchByName().sendKeys( "Carter" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Carter" ).click();
+
 		ScenarioView addMember= $(ScenarioView.class).first();
 		addMember.addMemberButton().click();
 		AddFamilyView family = $( AddFamilyView.class ).first();
@@ -152,19 +153,19 @@ public class AddFamilyIT extends BaseLoginTest {
 	addAddress.getAddButton().click();
 	AddressView setAddress=$ (AddressView.class).first();
 	setAddress.getCountry().selectByText( "USA" );
-	setAddress.address( "12 Main Street","29 Church Street","Norfolk","23503" );
+	setAddress.address( "74 River Street","25 Main Street","Norfolk","23503" );
 	setAddress.getState().selectByText( "VA" );
-	setAddress.getAddressType().selectItemByIndex( 0 );
-	Assertions.assertEquals( "Residence",setAddress.getAddressType().getSelectedText() );
-	setAddress.getDefaultMailing().click();
+	setAddress.getAddressType().selectItemByIndex( 1 );
+	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
+//	setAddress.getDefaultMailing().click();
 //	setAddress.getDefaultBilling().click();
-//	setAddress.getDefaultResidence().click();
+	setAddress.getDefaultResidence().click();
 	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
-	Assertions.assertEquals( "12 Main Street", setAddress.getLine1().getValue());
-	Assertions.assertEquals( "29 Church Street", setAddress.getLine2().getValue());
-	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+	Assertions.assertEquals( "74 River Street", setAddress.getLine1().getValue());
+	Assertions.assertEquals( "25 Main Street", setAddress.getLine2().getValue());
+//	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
 //	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
-//	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 	setAddress.getOkButton().click();
 	addAddress.getSaveButton().click();
 	addAddress.getDeleteButton().click();

@@ -229,7 +229,9 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		undoButton.getSaveButton().click();
 
 	}
-*/
+
+
+ */
 	@Test
 	public void addNewBusiness() throws InterruptedException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -324,4 +326,6 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 
 
 	}
+
+
 }
