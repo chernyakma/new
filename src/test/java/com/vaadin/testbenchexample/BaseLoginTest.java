@@ -33,9 +33,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		Parameters.setScreenshotRetryDelay(10);
 		Parameters.setScreenshotComparisonCursorDetection(true);
 	}
-
-/*
-	@After
+/*	@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}

@@ -15,6 +15,7 @@
  <vaadin.version>24.3.7</vaadin.version>
   </properties>
 
+
   <repositories>
     <repository>
       <id>Vaadin Directory</id>
@@ -31,9 +32,6 @@
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </pluginRepository>
     </pluginRepositories>
-
-
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -110,7 +108,6 @@
 <scope>runtime</scope>
 </dependency>
   
-  
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-testbench-core-junit5</artifactId>
@@ -142,21 +139,17 @@
             <artifactId>selenium-jupiter</artifactId>
             <version>5.1.0</version>
             <scope>test</scope>
-        </dependency>
-
-
+</dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.23.0</version>
+      <version>4.24.0</version>
     </dependency>
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
     <version>5.7.0</version>
 </dependency>
-
-
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -181,11 +174,7 @@
       <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
-
-
-
   </dependencies>
-
   <build>   
     <plugins>     
       <plugin>
@@ -253,7 +242,6 @@
             </build>
         </profile>
     </profiles>
-
 </project>
 
 <!-- Other configurations -->
