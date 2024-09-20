@@ -57,11 +57,11 @@ public class AddFamilyIT extends BaseLoginTest {
 		family.getDateOfDeath().setDate( LocalDate.of( 2024,04,25 ) );
 		family.getLastContactDate().setDate( LocalDate.of( 2024,03,25 ) );
 
-		Assertions.assertEquals( "Braden", family.getFirstName().getValue() );
-		Assertions.assertEquals( "Carter", family.getLastName().getValue() );
+		Assertions.assertEquals( "David", family.getFirstName().getValue() );
+		Assertions.assertEquals( "Palmer", family.getLastName().getValue() );
 		Assertions.assertEquals( "Male", family.getGender().getSelectedText() );
 		Assertions.assertEquals( "10/15/1960", family.getDateOfBirth().getInputValue() );
- //        family.getSaveButton().click();
+ //       family.getSaveButton().click();
 	}
 
 	@Test
@@ -70,9 +70,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Carter" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Carter" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 
 		ScenarioView addMember= $(ScenarioView.class).first();
 		addMember.addMemberButton().click();
@@ -113,9 +113,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Carter" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Carter" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		ScenarioView editMember= $(ScenarioView.class).first();
 		editMember.getEditFamilyButton().click();
 		NaviMenuView getBank = $( NaviMenuView.class ).first();
@@ -123,7 +123,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		AddFamilyView addBankAccount = $(AddFamilyView.class).first();
 		addBankAccount.addBankButton().click();
 		EntryDialogContent bankAccount =$(EntryDialogContent.class).first();
-		bankAccount.addAccount( "Bank of America","Braden","Carter","1234566789","051000017" );
+		bankAccount.addAccount( "Bank of America","David","Palmer","1234566789","051000017" );
         bankAccount.getPartyType().selectByText( "Individual" );
 		bankAccount.getAccountType().selectByText( "Checking" );
 		Assertions.assertEquals( "Bank of America",bankAccount.getFinancialInstitutionName().getValue() );
@@ -144,9 +144,9 @@ public class AddFamilyIT extends BaseLoginTest {
 	VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
     getSelectButton.getSelectItem().selectItemByIndex( 5 );
 	SearchComponentView getFamily = $( SearchComponentView.class ).first();
-	getFamily.searchByName().sendKeys( "Carter" );
+	getFamily.searchByName().sendKeys( "Palmer" );
 	getFamily.searchButton().click();
-	getFamily.family().getCell( "Carter" ).click();
+	getFamily.family().getCell( "Palmer" ).click();
 	NaviMenuView getAddress = $(NaviMenuView.class).first();
     getAddress.getAddresses().click();
 	ScenarioView addAddress = $(ScenarioView.class).first();
@@ -180,9 +180,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Carter" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Carter" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView getAddress = $( NaviMenuView.class ).first();
 		getAddress.getAddresses().click();
 		ScenarioView edit = $( ScenarioView.class ).first();
@@ -191,12 +191,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.clearAddress();
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "VA" );
-	//	setAddress.getDefaultResidence().click();
-		setAddress.getDefaultMailing().click();
+		setAddress.getDefaultBilling().click();
+		setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );
-		Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+		Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 		Assertions.assertEquals( "23503",setAddress.getZip().getValue() );
 		setAddress.getCancelButton().click();
 	//	setAddress.getEditOkButton().click();

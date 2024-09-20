@@ -140,15 +140,15 @@ public class AddNewBusinessWholeLifeIT extends BaseLoginTest {
 		undoButton.getSaveButton().click();
 
 	}
-
+*/
 	@Test
 	public void addNewBusinessWL()throws InterruptedException, IOException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Carter" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Carter" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
@@ -233,5 +233,5 @@ public class AddNewBusinessWholeLifeIT extends BaseLoginTest {
 		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
 
 	}
-*/
+
 }
