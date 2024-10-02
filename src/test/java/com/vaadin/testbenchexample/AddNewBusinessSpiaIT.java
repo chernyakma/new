@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import com.vaadin.testbench.screenshot.ImageFileUtil;
 
 public class AddNewBusinessSpiaIT extends BaseLoginTest {
+
 	/*
 	@Test
 	public void addIllustration() throws InterruptedException {
@@ -70,18 +71,24 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 	}
 
 	@Test
-	public void addApplication2() throws IOException, InterruptedException {
+	public void addApplication2() throws Exception {
 
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Mouse" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Mouse" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000225" ).click();
+		getApplication.applicationNumber().getCell( "424000035" ).click();
+		NaviMenuView getDocument = $( NaviMenuView.class ).first();
+		getDocument.getDocument().click();
 		ApplicationView application = $( ApplicationView.class ).first();
-		application.applicationReceived().selectByText( "Yes" );
+		application.downloadButton().click();
+		Thread.sleep( 3_000 );
+		application.compareAndDeleteDownloadedPdf();
+
+	application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
@@ -209,10 +216,10 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 
 	}
 
-	 */
+*/
 
 	@Test
-	public void addNewBusiness() throws InterruptedException, IOException {
+	public void addNewBusiness() throws Exception {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
@@ -237,14 +244,26 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		illustration.federalTaxWithholdingPercentage().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "10" );
 		illustration.disbursementMethod().selectByText( "ACH Disbursement" );
 		illustration.getSaveButton().click();
+		Assertions.assertEquals( illustration.paymentStartDate().getDate(),illustration.policyEffectiveDate().getDate().plusMonths( 3 ) );
 		NaviMenuView getReport = $( NaviMenuView.class ).first();
 		getReport.getReport().click();
 		IllustrationView apply = $( IllustrationView.class ).first();
 		apply.getApplyButtonReport().click();
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getSaveButton().click();
+
+        NaviMenuView getDocument = $( NaviMenuView.class ).first();
+		getDocument.getDocument().click();
 		ApplicationView application = $( ApplicationView.class ).first();
-		application.applicationReceived().selectByText( "Yes" );
+		application.downloadButton().click();
+		Thread.sleep( 3_000 );
+		application.compareAndDeleteDownloadedPdfSPIA();
+
+		NaviMenuView getApplication = $( NaviMenuView.class ).first();
+		getApplication.getApplication().click();
+		ApplicationView app = $( ApplicationView.class ).first();
+
+		app.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
@@ -263,19 +282,19 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
 		addNote.okButton().click();
 		addNote.closeButton().click();
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
@@ -316,9 +335,10 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 
 
 	}
-
-
 }
+
+
+
 
 
 

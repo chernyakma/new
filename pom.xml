@@ -13,6 +13,7 @@
  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
  <java.version>17</java.version>
  <vaadin.version>24.3.7</vaadin.version>
+
   </properties>
 
 
@@ -143,7 +144,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.24.0</version>
+      <version>4.25.0</version>
     </dependency>
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
@@ -174,6 +175,11 @@
       <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.apache.pdfbox</groupId>
+          <artifactId>pdfbox</artifactId>
+          <version>2.0.24</version>
+      </dependency>
   </dependencies>
   <build>   
     <plugins>     
@@ -211,8 +217,9 @@
                 <include>AddFamilyIT.java</include>
               </includes>
               <trimStackTrace>false</trimStackTrace>
+
               <enableAssertions>true</enableAssertions>
-            </configuration>
+                </configuration>
           </plugin>
 
             <!-- Maven Surefire Plugin -->

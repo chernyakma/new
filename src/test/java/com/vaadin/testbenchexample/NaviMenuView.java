@@ -25,6 +25,20 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
 	}
+	protected TestBenchElement getApplication() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 1 );
+	}
+
+	protected TestBenchElement getDocument() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+	}
+//SPDA
+	protected TestBenchElement getDocumentSPDA() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
+	}
 
 	protected TestBenchElement getNewBusiness() {
 
