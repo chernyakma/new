@@ -198,26 +198,6 @@
           </execution>
         </executions>
       </plugin>
-
-        <plugin>
-            <groupId>com.lazerycode.selenium</groupId>
-            <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-            <version>1.0.18</version>
-            <configuration>
-                <downloadedZipFileDirectory>${project.basedir}/webdriver/zips</downloadedZipFileDirectory>
-                <rootStandaloneServerDirectory>${project.basedir}/webdriver</rootStandaloneServerDirectory>
-                <customRepositoryMap>${project.basedir}/webdrivers.xml</customRepositoryMap>
-            </configuration>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>selenium</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-
-
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
