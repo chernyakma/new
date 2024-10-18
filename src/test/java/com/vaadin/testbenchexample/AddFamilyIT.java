@@ -26,6 +26,9 @@ import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBenchElement;
 
 public class AddFamilyIT extends BaseLoginTest {
+	
+	
+	
 
 
 

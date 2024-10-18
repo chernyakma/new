@@ -231,7 +231,8 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getDepositAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
-		addNewBusiness.getInsured().selectItemByIndex( 0 );
+//		addNewBusiness.getInsured().selectItemByIndex( 0 );
+        addNewBusiness.getState().selectByText( "VA" );
 		addNewBusiness.getOkButton().click();
 		IllustrationView illustration = $( IllustrationView.class ).first();
 		illustration.getAgentNumber().openPopup();

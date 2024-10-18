@@ -26,6 +26,10 @@ public class NewIllustrationView extends TestBenchElement {
 		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(SelectElement.class).id( "InsuredID" );
 
 	}
+	protected SelectElement getState(){
+		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(SelectElement.class).id( "StateCode" );
+
+	}
 	protected TextFieldElement getDepositAmount(){
 		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(TextFieldElement.class).id( "DepositAmount" );
 

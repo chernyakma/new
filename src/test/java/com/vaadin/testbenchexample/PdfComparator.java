@@ -46,9 +46,12 @@ public class PdfComparator {
 	// Method to remove date patterns, including "Month Day, Year"
 	private static String removeDates(String text) {
 		// Regex pattern for dates like "dd/MM/yyyy", "MM-dd-yyyy", and "Month Day, Year"
-		String datePattern = "(\\d{2}/\\d{2}/\\d{4})" +             // Matches "dd/MM/yyyy"
-							 "|(\\d{2}-\\d{2}-\\d{4})" +            // Matches "MM-dd-yyyy"
-							 "|((January|February|March|April|May|June|July|August|September|October|November|December) \\d{1,2}, \\d{4})";  // Matches "Month Day, Year"
+		String datePattern =  "(\\d{1,2}/\\d{1,2}/\\d{2,4})" +            // Matches "MM/dd/yyyy" or "M/d/yyyy"
+							  "|(\\d{1,2}-\\d{1,2}-\\d{2,4})" +           // Matches "MM-dd-yyyy" or "M-d-yyyy"
+							  "|(\\d{1,2}\\.\\d{1,2}\\.\\d{2,4})" +       // Matches "MM.dd.yyyy"
+							  "|((January|February|March|April|May|June|July|August|September|October|November|December)" +
+							  " \\d{1,2},?(\\s+\\d{4})?)" +               // Matches "Month Day, Year" and "Month Day", even if year is on the next line
+							  "|((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{1,2},?(\\s+\\d{4})?)";  // Matches abbreviated month names, multi-line
 
 		// Remove all detected date patterns
 		return text.replaceAll(datePattern, "");

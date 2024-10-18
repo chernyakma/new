@@ -108,6 +108,8 @@
     <version>2.2.224</version>
 <scope>runtime</scope>
 </dependency>
+
+
   
     <dependency>
       <groupId>com.vaadin</groupId>
@@ -141,16 +143,17 @@
             <version>5.1.0</version>
             <scope>test</scope>
 </dependency>
+      <dependency>
+          <groupId>io.github.bonigarcia</groupId>
+          <artifactId>webdrivermanager</artifactId>
+          <version>5.7.0</version>
+      </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>4.25.0</version>
     </dependency>
-<dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>5.7.0</version>
-</dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -195,7 +198,27 @@
           </execution>
         </executions>
       </plugin>
-  <plugin>
+
+        <plugin>
+            <groupId>com.lazerycode.selenium</groupId>
+            <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+            <version>1.0.18</version>
+            <configuration>
+                <downloadedZipFileDirectory>${project.basedir}/webdriver/zips</downloadedZipFileDirectory>
+                <rootStandaloneServerDirectory>${project.basedir}/webdriver</rootStandaloneServerDirectory>
+                <customRepositoryMap>${project.basedir}/webdrivers.xml</customRepositoryMap>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>selenium</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+
+        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>3.1.2</version>
@@ -218,7 +241,8 @@
               </includes>
               <trimStackTrace>false</trimStackTrace>
 
-              <enableAssertions>true</enableAssertions>
+
+                <enableAssertions>true</enableAssertions>
                 </configuration>
           </plugin>
 

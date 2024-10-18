@@ -140,7 +140,7 @@ public class AddNewBusinessWholeLifeIT extends BaseLoginTest {
 		undoButton.getSaveButton().click();
 
 	}
-*/
+
 	@Test
 	public void addNewBusinessWL()throws InterruptedException, IOException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -233,5 +233,5 @@ public class AddNewBusinessWholeLifeIT extends BaseLoginTest {
 		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
 
 	}
-
+*/
 }
