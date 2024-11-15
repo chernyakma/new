@@ -35,7 +35,7 @@ public class IllustrationView extends TestBenchElement {
 	//WL
 	protected ButtonElement getApplyButtonWL() {
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 7 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 6 );
 	}
 
 	protected ButtonElement getApplyButtonResult() {
