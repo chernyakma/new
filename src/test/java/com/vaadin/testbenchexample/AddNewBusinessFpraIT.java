@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -221,7 +222,10 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		addNewBusiness.getOkButton().click();
 		IllustrationView illustration = $( IllustrationView.class ).first();
 		illustration.getAgentNumber().openPopup();
-		illustration.getAgentNumber().sendKeys( Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN );
+		illustration.getAgentNumber().sendKeys("NM001");
+		Thread.sleep( 3_000 );
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", illustration.getAgentNumber());
 		illustration.getAgentNumber().sendKeys( Keys.ENTER );
 		Assertions.assertEquals( "NM001 - Navy Mutual Default Agent", illustration.getAgentNumber().getSelectedText() );
 		illustration.getApplyButton().click();
