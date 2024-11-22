@@ -327,7 +327,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		transaction.processActivateTransactionButton().click();
 		VaadinConfirmDialogView confirmation = $( VaadinConfirmDialogView.class ).first();
 		confirmation.getSaveButton().click();
-		Thread.sleep( 10_000 );
+		waitUntil(driver -> !transaction.progressBar().isDisplayed(), 80);
 		transaction.processInitialPremiumTransactionButton().click();
 		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
 		okButton.getSaveButton().click();
