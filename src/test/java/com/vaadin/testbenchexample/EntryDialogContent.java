@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
+import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextAreaElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
@@ -83,6 +84,59 @@ public class EntryDialogContent extends TestBenchElement {
 	protected DatePickerElement effectveDate() {
 		return $(TestBenchElement.class).id( "mainContent" ).$(DatePickerElement.class).first();
 	}
+
+	//Beneficiary
+	protected SelectElement selectBene (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("PartyGUID");
+	}
+	protected TextFieldElement firstName (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(TestBenchElement.class).id("sectionComponent").$(TextFieldElement.class).id("FirstName");
+	}
+	protected TextFieldElement lastName (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(TextFieldElement.class).id("LastName");
+	}
+	protected SelectElement gender (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(SelectElement.class).id("Gender");
+	}
+	protected DatePickerElement dob (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(DatePickerElement.class).id("DateOfBirth");
+	}
+	protected TextFieldElement ssn (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(TextFieldElement.class).id("SsnOrTaxID");
+	}
+	protected TextFieldElement email (){
+		return $(TestBenchElement.class).id("Contact" ).$(TextFieldElement.class).id("Email");
+	}
+	protected TextFieldElement email2 (){
+		return $(TestBenchElement.class).id("Contact" ).$(TextFieldElement.class).id("Email2");
+	}
+	protected TextFieldElement pnoneNumber (){
+		return $(TestBenchElement.class).id("Contact" ).$(TextFieldElement.class).id("Phone1");
+	}
+	protected TextFieldElement phone2 (){
+		return $(TestBenchElement.class).id("Contact" ).$(TextFieldElement.class).id("Phone2");
+	}
+	protected SelectElement phoneType1 (){
+		return $(TestBenchElement.class).id("Contact" ).$(SelectElement.class).id("PhoneType1");
+	}
+	protected SelectElement phoneType2 (){
+		return $(TestBenchElement.class).id("Contact" ).$(SelectElement.class).id("PhoneType2");
+	}
+	protected RadioButtonGroupElement defaultAddress (){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(RadioButtonGroupElement.class).first();
+	}
+
+	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber,String phone2number,String email2){
+		firstName().sendKeys(firstName);
+		lastName().sendKeys(lastName);
+		ssn().setValue(ssn);
+		email().sendKeys(email);
+		pnoneNumber().setValue(phoneNumber);
+		phone2().setValue(phone2number);
+		email2().sendKeys(email2);
+	}
+
+
 	public void addAccount(String bankName,String firstName,String lastName,String accountNumber,String routingNumber ){
 		getFinancialInstitutionName().sendKeys( bankName );
 		getAccountFirstName().sendKeys( firstName );

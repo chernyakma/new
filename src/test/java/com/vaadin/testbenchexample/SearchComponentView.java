@@ -14,6 +14,9 @@ public class SearchComponentView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "Search" ).$( TextFieldElement.class ).id( "LastName" );
 
 	}
+	protected TextFieldElement searchByPolicy(){
+		return $( TestBenchElement.class ).id( "Search" ).$( TextFieldElement.class ).id( "PolicyNumber" );
+	}
 	protected ButtonElement searchButton (){
 		return $(ButtonElement.class).first();
 	}
