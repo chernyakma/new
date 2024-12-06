@@ -228,10 +228,10 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
+
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getDepositAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
-//		addNewBusiness.getInsured().selectItemByIndex( 0 );
         addNewBusiness.getState().selectByText( "VA" );
 		addNewBusiness.getOkButton().click();
 		IllustrationView illustration = $( IllustrationView.class ).first();
@@ -248,11 +248,11 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		Assertions.assertEquals( illustration.paymentStartDate().getDate(),illustration.policyEffectiveDate().getDate().plusMonths( 3 ) );
 		NaviMenuView getReport = $( NaviMenuView.class ).first();
 		getReport.getReport().click();
+
 		IllustrationView apply = $( IllustrationView.class ).first();
 		apply.getApplyButtonReport().click();
 		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
 		confirm.getSaveButton().click();
-
         NaviMenuView getDocument = $( NaviMenuView.class ).first();
 		getDocument.getDocument().click();
 		ApplicationView application = $( ApplicationView.class ).first();

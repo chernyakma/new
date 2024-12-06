@@ -135,10 +135,15 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "Individual",bankAccount.getPartyType().getSelectedText() );
 		Assertions.assertEquals( "Checking",bankAccount.getAccountType().getSelectedText() );
 		bankAccount.okButton().click();
+
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();
+		EntryDialogContent confirm =$(EntryDialogContent.class).first();
+		confirm.closeButton().click();
 		addBankAccount.deleteBankButton().click();
 		saveButton.getSaveButton().click();
+		EntryDialogContent close =$(EntryDialogContent.class).first();
+		close.closeButton().click();
 	}
 
 	@Test
