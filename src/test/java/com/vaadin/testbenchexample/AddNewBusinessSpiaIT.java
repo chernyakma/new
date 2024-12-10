@@ -336,7 +336,129 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 
 
 	}
+/*
+	@Test
+	public void addNewBusinessMaster() throws Exception {
+		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
+		SearchComponentView getFamily = $( SearchComponentView.class ).first();
+		getFamily.searchByName().sendKeys( "Palmer" );
+		getFamily.searchButton().click();
+		getFamily.family().getCell( "Palmer" ).click();
+		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
+		newBusiness.getNewBusiness().click();
+
+		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
+		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
+		addNewBusiness.getDepositAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
+		addNewBusiness.getState().selectByText( "VA" );
+		addNewBusiness.getOkButton().click();
+		IllustrationView illustration = $( IllustrationView.class ).first();
+		illustration.getAgentNumber().openPopup();
+		illustration.getAgentNumber().sendKeys( Keys.ARROW_DOWN, Keys.ARROW_DOWN );
+		illustration.getAgentNumber().sendKeys( Keys.ENTER );
+	//	Assertions.assertEquals( "NM001 - Navy Mutual Default Agent", illustration.getAgentNumber().getSelectedText() );
+		illustration.payOutOption().selectByText( "Period Certain" );
+		illustration.paymentMode().selectByText( "Quarterly" );
+		illustration.periodCertainYears().selectByText( "15 Year" );
+		illustration.federalTaxWithholdingPercentage().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "10" );
+		illustration.disbursementMethod().selectByText( "ACH Disbursement" );
+		illustration.getSaveButton().click();
+		Assertions.assertEquals( illustration.paymentStartDate().getDate(),illustration.policyEffectiveDate().getDate().plusMonths( 3 ) );
+		NaviMenuView getReport = $( NaviMenuView.class ).first();
+		getReport.getReport().click();
+
+		IllustrationView apply = $( IllustrationView.class ).first();
+		apply.getApplyButtonReport().click();
+		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
+		confirm.getSaveButton().click();
+		NaviMenuView getDocument = $( NaviMenuView.class ).first();
+		getDocument.getDocument().click();
+		ApplicationView application = $( ApplicationView.class ).first();
+		application.downloadButton().click();
+		Thread.sleep( 3_000 );
+		application.compareAndDeleteDownloadedPdfSPIA();
+
+		NaviMenuView getApplication = $( NaviMenuView.class ).first();
+		getApplication.getApplication().click();
+		ApplicationView app = $( ApplicationView.class ).first();
+
+		app.applicationReceived().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
+		application.applicationReceivedDate().setDate( LocalDate.now() );
+		application.applicationSignedDate().setDate( LocalDate.now() );
+		application.applicationFundsReceived().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
+		application.cashWithApplication().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
+		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+		application.threeDotsButton().click();
+		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
+		noteList.click();
+		Thread.sleep( 3_000 );
+		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
+		addNote.addNoteButton().click();
+		addNote.noteText().setValue( "document 1" );
+		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
+		Thread.sleep( 3_000 );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Final Application" );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
+		Thread.sleep( 3_000 );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
+		Thread.sleep( 3_000 );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Final Illustration" );
+		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
+		addNote.okButton().click();
+		addNote.closeButton().click();
+		NaviMenuView iGO = $( NaviMenuView.class ).first();
+		iGO.checkIGO().click();
+		Thread.sleep( 3_000 );
+		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+				"Screenshot 2024-06-04 171743.png" ) ) );
+		ApplicationView getIssueButton = $( ApplicationView.class ).first();
+		Assertions.assertTrue( getIssueButton.issueButton().isDisplayed() );
+		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
+		addSuspense.suspense().click();
+		ApplicationView addSuspenseButton = $( ApplicationView.class ).first();
+		addSuspenseButton.addSuspense().click();
+		EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
+		suspenseSource.suspenseAmount().sendKeys( "100000" );
+		suspenseSource.suspenseSource().selectByText( "Check" );
+		suspenseSource.processButton().click();
+
+		NaviMenuView iGOIssue = $( NaviMenuView.class ).first();
+		iGOIssue.checkIGO().click();
+		ApplicationView issue = $( ApplicationView.class ).first();
+		issue.issueButton().click();
+		VaadinConfirmDialogView confirmButton = $( VaadinConfirmDialogView.class ).first();
+		confirmButton.getSaveButton().click();
+
+		NaviMenuView getTransactions = $( NaviMenuView.class ).first();
+		getTransactions.transactionsSPIA().click();
+		ScenarioView transaction = $( ScenarioView.class ).first();
+		transaction.processActivateTransactionButton().click();
+		VaadinConfirmDialogView confirmation = $( VaadinConfirmDialogView.class ).first();
+		confirmation.getSaveButton().click();
+		waitUntil(driver -> !transaction.progressBar().isDisplayed(), 80);
+		transaction.processInitialPremiumTransactionButton().click();
+		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
+		okButton.getSaveButton().click();
+		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+		Assertions.assertEquals( "Annuitized",getPolicyStatus.policyStatus().getText() );
+
+
+	}
+*/
 }
+
+
 
 
 

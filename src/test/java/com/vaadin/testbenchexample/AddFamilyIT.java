@@ -41,6 +41,7 @@ public class AddFamilyIT extends BaseLoginTest {
 	//	getDriver().get( "http://localhost:8080/navy_webui/familyInsured" );
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/familyInsured");
 		getDriver().get( "https://test.navymutual.calcfocus.net/policyadmin/familyInsured/" );
+	//	getDriver().get("https://master.navymutual.calcfocus.net/policyadmin/familyInsured");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
 		family.getGender().selectItemByIndex( 0 );
@@ -255,6 +256,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
 		delete.getSaveButton().click();
 		getBeneficiary.policyNumber().getCell("07671665").click();
+
 		family.beneficiaries().click();
 		ScenarioView deleteBene =$(ScenarioView.class).first();
 		deleteBene.getDeleteBeneButton().click();
@@ -265,8 +267,63 @@ public class AddFamilyIT extends BaseLoginTest {
 //		ScenarioView deleteBene =$(ScenarioView.class).first();
 //		deleteBene.getDeleteBeneButton().click();
 	}
+	/*
+	@Test
+	public void addBeneficiaryMaster() throws InterruptedException {
+		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
+		getSelectButton.getSelectItem().selectItemByIndex( 6 );
+		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
+		getPolicy.searchByPolicy().sendKeys("424000006");
+		getPolicy.searchButton().click();
+		getPolicy.family().getCell("424000006").click();
+		NaviMenuView getBeneficiaries = $( NaviMenuView.class ).first();
+		getBeneficiaries.beneficiaries().click();
+		Thread.sleep( 3_000 );
+		ScenarioView addBeneficiary = $(ScenarioView.class).first();
+		addBeneficiary.getAddBeneButton().click();
+		EntryDialogContent bene = $(EntryDialogContent.class).first();
+		bene.selectBene().selectByText("Add New");
+		bene.okButton().click();
+		Thread.sleep( 3_000 );
+		EntryDialogContent newBeneficiary =$(EntryDialogContent.class).first();
+		newBeneficiary.addBeneficiary("Harry","Potter","253446453","test@yahoo.com","1234567890","987654321","test2@yahoo.com");
+		newBeneficiary.dob().setDate( LocalDate.of( 1980, 8, 25 ) );
+		newBeneficiary.gender().selectByText("Male");
+		newBeneficiary.phoneType1().selectByText("Mobile");
+		newBeneficiary.phoneType2().selectByText("Business");
+		Assertions.assertEquals("Potter",newBeneficiary.lastName().getValue());
+		Assertions.assertEquals("8/25/1980",newBeneficiary.dob().getInputValue());
+		Assertions.assertEquals("253446453",newBeneficiary.ssn().getValue());
+		Assertions.assertEquals("test@yahoo.com",newBeneficiary.email().getValue());
+		Assertions.assertEquals("987654321",newBeneficiary.phone2().getValue());
+		Assertions.assertEquals("Mobile",newBeneficiary.phoneType1().getSelectedText());
+		newBeneficiary.okButton().click();
+		ScenarioView beneficiary = $(ScenarioView.class).first();
+		beneficiary.getSaveButton().click();
+		Thread.sleep( 3_000 );
+		VaadinConfirmDialogView confirm = $ (VaadinConfirmDialogView.class).first();
+		confirm.getDeleteButton().click();
+		NaviMenuView family = $( NaviMenuView.class ).first();
+		family.getFamily().click();
+		ScenarioView getBeneficiary = $(ScenarioView.class).first();
+		Assertions.assertTrue(getBeneficiary.family().getCell("Potter").isDisplayed());
+		getBeneficiary.getDeleteFamilyBeneButton().click();
+		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
+		delete.getSaveButton().click();
+		getBeneficiary.policyNumber().getCell("424000006").click();
+		family.beneficiaries().click();
+		ScenarioView deleteBene =$(ScenarioView.class).first();
+		deleteBene.getDeleteBeneButtonMaster().click();
+		deleteBene.getSaveButton().click();
+		Thread.sleep( 3_000 );
+		VaadinConfirmDialogView ok = $ (VaadinConfirmDialogView.class).first();
+		ok.getDeleteButton().click();
+//		ScenarioView deleteBene =$(ScenarioView.class).first();
+//		deleteBene.getDeleteBeneButton().click();
+	}
 
-/*	@Test
+/*
+	@Test
 
 	public void deleteAddress() {
 

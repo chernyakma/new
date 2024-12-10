@@ -96,6 +96,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	//	$( PasswordFieldElement.class).first().setValue( "JBond007");
 	//	$( ButtonElement.class).first().click();
 		getDriver().get("https://test.navymutual.calcfocus.net/policyadmin/oauth2/login/cognito");
+	//	getDriver().get("https://master.navymutual.calcfocus.net/policyadmin");
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
 		usernameFieldElement.sendKeys( "helpdesk" );
