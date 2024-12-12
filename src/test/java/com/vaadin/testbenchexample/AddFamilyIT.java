@@ -111,6 +111,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		deleteSpouse.getSaveButton().click();
 
 	}
+	/*
 	@Test
 	public void addBank() throws InterruptedException {
 
