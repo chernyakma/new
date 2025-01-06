@@ -216,7 +216,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 
 	}
 
-
+*/
 
 	@Test
 	public void addNewBusiness() throws Exception {
