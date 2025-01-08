@@ -230,7 +230,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 
 	}
 
-*/
+
 
 	@Test
 	public void addNewBusiness() throws Exception {

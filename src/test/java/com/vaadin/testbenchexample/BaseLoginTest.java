@@ -12,6 +12,7 @@ import com.vaadin.testbench.Parameters;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.TestBenchTestCase;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -67,9 +68,10 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	// Set Chrome options
 	ChromeOptions options = new ChromeOptions();
 	options.setExperimentalOption("prefs", prefs);
+	WebDriverManager.chromedriver().setup();
 
 	// Optional: If you want to run the tests in headless mode (without a UI)
-	// options.addArguments("--headless", "--disable-gpu");
+	 options.addArguments("--headless", "--disable-gpu");
 //	setDriver(new ChromeDriver());
 	// Initialize the ChromeDriver with the specified options and capabilities
 //	driver = new ChromeDriver(options);

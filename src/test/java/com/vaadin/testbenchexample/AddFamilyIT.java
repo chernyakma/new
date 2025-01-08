@@ -249,6 +249,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		Thread.sleep( 3_000 );
 		VaadinConfirmDialogView confirm = $ (VaadinConfirmDialogView.class).first();
 		confirm.getDeleteButton().click();
+		ScenarioView deleteBeneficiary = $(ScenarioView.class).first();
+		deleteBeneficiary.getDeleteBeneButton().click();
+		deleteBeneficiary.getSaveButton().click();
+		Thread.sleep( 3_000 );
+		VaadinConfirmDialogView confirmDelete = $ (VaadinConfirmDialogView.class).first();
+		confirmDelete.getDeleteButton().click();
 		NaviMenuView family = $( NaviMenuView.class ).first();
 		family.getFamily().click();
 		ScenarioView getBeneficiary = $(ScenarioView.class).first();
@@ -256,7 +262,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		getBeneficiary.getDeleteFamilyBeneButton().click();
 		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
 		delete.getSaveButton().click();
-		getBeneficiary.policyNumber().getCell("07671665").click();
+/*		getBeneficiary.policyNumber().getCell("07671665").click();
 
 		family.beneficiaries().click();
 		ScenarioView deleteBene =$(ScenarioView.class).first();
@@ -265,8 +271,10 @@ public class AddFamilyIT extends BaseLoginTest {
 		Thread.sleep( 3_000 );
 		VaadinConfirmDialogView ok = $ (VaadinConfirmDialogView.class).first();
 		ok.getDeleteButton().click();
-//		ScenarioView deleteBene =$(ScenarioView.class).first();
-//		deleteBene.getDeleteBeneButton().click();
+		ScenarioView deleteBene =$(ScenarioView.class).first();
+		deleteBene.getDeleteBeneButton().click();
+
+ */
 	}
 	/*
 	@Test

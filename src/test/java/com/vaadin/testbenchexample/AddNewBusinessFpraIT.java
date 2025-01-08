@@ -203,7 +203,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 
 			}
 
-*/
+
 	@Test
 	public void addNewBusiness() throws InterruptedException {
 
