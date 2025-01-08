@@ -48,14 +48,14 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	}
 
 
+
 */
 
-
-	/*	@After
+		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-*/
+
 	@Before
 	public void setUp() {
 	// Configure download preferences for Chrome

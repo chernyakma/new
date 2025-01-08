@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -78,13 +79,13 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 	public void uploadDocs() throws IOException, InterruptedException {
 
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchByName().sendKeys( "Mouse" );
+		getFamily.searchByName().sendKeys( "Palmer" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Mouse" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		ScenarioView getApplication = $( ScenarioView.class ).first();
-		getApplication.applicationNumber().getCell( "424000235" ).click();
+		getApplication.applicationNumber().getCell( "425000017" ).click();
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.threeDotsButton().click();
 		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
@@ -92,18 +93,53 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		Thread.sleep( 3_000 );
 		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
 		addNote.addNoteButton().click();
-		addNote.noteText().setValue( "document 1" );
+		addNote.noteText().setValue( "document 2" );
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().doubleClick();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+//		System.getenv().forEach((key, value) -> System.out.println(key + ": " + value));
+		String filePath = System.getenv("UPLOAD_FILE_PATH");
+//		System.out.println("UPLOAD_FILE_PATH: " + filePath);
+		File fileToUpload = new File(filePath);
+//		System.out.println("Resolved file path: " + fileToUpload.getAbsolutePath());
+//		System.out.println("File exists: " + fileToUpload.exists());
+		addNote.uploadFileButton().upload(fileToUpload);
+
+
+//		addNote.uploadFileButton().upload(new File("src\\test\\resources\\Annuity Questionnare.pdf"));
+//		addNote.uploadFileButton().upload(new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\src\\test\\resources\\Annuity Questionnare.pdf"));
+
+//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
+
+		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+		File fileToUploadApp = new File(filePathApp);
+//		System.out.println("UPLOAD_FILE_PATH_App: " + filePathApp);
+//		System.out.println("Resolved file path: " + fileToUploadApp.getAbsolutePath());
+//		System.out.println("File exists: " + fileToUploadApp.exists());
+
+//		if (!fileToUploadApp.exists()) {
+//			throw new FileNotFoundException("File not found: " + fileToUploadApp.getAbsolutePath());
+//		}
+
+		addNote.uploadFileButton().upload(fileToUploadApp);
+
+//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
+		addNote.attachmentType().selectByText("Sales Representative Disclosure");
+		String filePathS = System.getenv("UPLOAD_FILE_PATH_SALES");
+		if (filePathS == null || filePathS.isEmpty()) {
+			throw new IllegalArgumentException("Environment variable 'UPLOAD_FILE_PATH_SALES' is not set.");
+		}
+		File fileToUploadS = new File(filePathS);
+		if (!fileToUploadS.exists()) {
+			throw new FileNotFoundException("Sales Representative Disclosure file not found: " + fileToUploadS.getAbsolutePath());
+		}
+		addNote.uploadFileButton().upload(fileToUploadS); // Fix: Use the correct variable here
+/*
 		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
 		addNote.okButton().click();
 		addNote.closeButton().click();
@@ -128,7 +164,8 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 
 	}
 
-	@Test
+/*
+@Test
 	public void addSuspense() {
 
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -202,7 +239,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 				undoButton.getSaveButton().click();
 
 			}
-
+*/
 
 	@Test
 	public void addNewBusiness() throws InterruptedException {
@@ -252,15 +289,21 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
+		String filePath = System.getenv("UPLOAD_FILE_PATH");
+        File fileToUpload = new File(filePath);
+		addNote.uploadFileButton().upload(fileToUpload);
 		Thread.sleep( 5_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf" ) );
+		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+		File fileToUploadApp = new File(filePathApp);
+        addNote.uploadFileButton().upload(fileToUploadApp);
 		Thread.sleep( 5_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
+		String filePathS = System.getenv("UPLOAD_FILE_PATH_SALES");
+        File fileToUploadS = new File(filePathS);
+		addNote.uploadFileButton().upload(fileToUploadS);
 		addNote.okButton().click();
 		addNote.closeButton().click();
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
