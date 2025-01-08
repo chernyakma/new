@@ -168,7 +168,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 	public void addFamily( ) {
 
-		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\testData.xlsx" );
+		List<String[]> testData = ExcelUtils.readExcelData( "src/test/resources/testData.xlsx" );
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
@@ -204,7 +204,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 	public void addSpouse( ) {
 
-		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\TestSpouseData.xlsx" );
+		List<String[]> testData = ExcelUtils.readExcelData( "src/test/resources/TestSpouseData.xlsx" );
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
