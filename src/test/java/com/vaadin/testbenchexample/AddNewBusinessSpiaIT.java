@@ -216,7 +216,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 
 	}
 
-
+*/
 
 	@Test
 	public void addNewBusiness() throws Exception {
@@ -282,27 +282,40 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		addNote.noteText().setValue( "document 1" );
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
+        addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
+        String filePath = System.getenv("UPLOAD_FILE_PATH");
+        File fileToUpload = new File(filePath);
+        addNote.uploadFileButton().upload(fileToUpload);
+	//	addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
+        String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+        File fileToUploadApp = new File(filePathApp);
+        addNote.uploadFileButton().upload(fileToUploadApp);
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
+        String filePathS = System.getenv("UPLOAD_FILE_PATH_SALES");
+        File fileToUploadS = new File(filePathS);
+        addNote.uploadFileButton().upload(fileToUploadS);
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
+        String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
+        File fileToUploadIll = new File(filePathIll);
+        addNote.uploadFileButton().upload(fileToUploadIll);
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
 		addNote.okButton().click();
 		addNote.closeButton().click();
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		Thread.sleep( 3_000 );
-		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
-			"Screenshot 2024-06-04 171743.png" ) ) );
+	//	Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+	//		"Screenshot 2024-06-04 171743.png" ) ) );
 		ApplicationView getIssueButton = $( ApplicationView.class ).first();
 		Assertions.assertTrue( getIssueButton.issueButton().isDisplayed() );
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();

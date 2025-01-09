@@ -230,7 +230,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 
 	}
 
-
+*/
 
 	@Test
 	public void addNewBusiness() throws Exception {
@@ -291,15 +291,24 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
+        String filePath = System.getenv("UPLOAD_FILE_PATH");
+        File fileToUpload = new File(filePath);
+        addNote.uploadFileButton().upload(fileToUpload);
+//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf" ) );
+        String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+        File fileToUploadApp = new File(filePathApp);
+        addNote.uploadFileButton().upload(fileToUploadApp);
+//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
+        String filePathS = System.getenv("UPLOAD_FILE_PATH_SALES");
+        File fileToUploadS = new File(filePathS);
+        addNote.uploadFileButton().upload(fileToUploadS);
+//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.okButton().click();

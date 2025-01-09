@@ -49,21 +49,36 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 
-*/
+
 
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-
+*/
 	@Before
 	public void setUp() {
-	// Configure download preferences for Chrome
-	String downloadFilepath = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
-	Map<String, Object> prefs = new HashMap<>();
-	prefs.put("download.default_directory", downloadFilepath);
-	prefs.put("download.prompt_for_download", false); // Disable download prompts
-	prefs.put("safebrowsing.enabled", true); // Disable safety warnings for downloads
+		// Set up the download directory using the current working directory
+		String downloadFilepath = System.getProperty("user.dir") + File.separator + "downloadFiles";
+
+		// Ensure the download directory exists
+		File downloadDir = new File(downloadFilepath);
+		if (!downloadDir.exists()) {
+			boolean created = downloadDir.mkdirs();
+			if (created) {
+				System.out.println("Created download directory: " + downloadFilepath);
+			} else {
+				System.err.println("Failed to create download directory: " + downloadFilepath);
+			}
+		} else {
+			System.out.println("Download directory already exists: " + downloadFilepath);
+		}
+
+		// Configure Chrome preferences for file download
+		Map<String, Object> prefs = new HashMap<>();
+		prefs.put("download.default_directory", downloadFilepath); // Set the download directory
+		prefs.put("download.prompt_for_download", false); // Disable download prompts
+		prefs.put("safebrowsing.enabled", true); // Disable safety warnings for downloads
 
 	// Set Chrome options
 	ChromeOptions options = new ChromeOptions();
@@ -71,7 +86,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	WebDriverManager.chromedriver().setup();
 
 	// Optional: If you want to run the tests in headless mode (without a UI)
-	 options.addArguments("--headless", "--disable-gpu");
+//	 options.addArguments("--headless", "--disable-gpu");
 //	setDriver(new ChromeDriver());
 	// Initialize the ChromeDriver with the specified options and capabilities
 //	driver = new ChromeDriver(options);
