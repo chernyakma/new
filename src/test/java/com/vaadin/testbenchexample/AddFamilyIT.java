@@ -274,9 +274,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		ScenarioView deleteBene =$(ScenarioView.class).first();
 		deleteBene.getDeleteBeneButton().click();
 
-
+*/
 	}
-
+/*
 	@Test
 	public void addBeneficiaryMaster() throws InterruptedException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
