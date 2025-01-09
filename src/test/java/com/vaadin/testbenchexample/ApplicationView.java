@@ -139,12 +139,14 @@ public class ApplicationView extends TestBenchElement {
 
 	public void compareAndDeleteDownloadedPdfSPDA() throws Exception {
 
-		String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
+//		String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
+		String downloadDir = System.getProperty("user.dir") + "/downloadFiles";
 		String fileName = "NewBusiness.pdf";
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
-		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPDA.pdf");
+//		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPDA.pdf");
 		//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
+		File referenceFile = new File(System.getProperty("user.dir") + "/downloadFiles/ReferenceIllusSPDA.pdf");
 		boolean testPassed = false;
 		try {
 			boolean result = PdfComparator.comparePdfTextIgnoringDates( downloadedFile,referenceFile);
