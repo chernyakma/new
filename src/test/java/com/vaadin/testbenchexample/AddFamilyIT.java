@@ -140,12 +140,12 @@ public class AddFamilyIT extends BaseLoginTest {
 
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();
-//		EntryDialogContent confirm =$(EntryDialogContent.class).first();
-//		confirm.closeButton().click();
+		EntryDialogContent confirm =$(EntryDialogContent.class).first();
+		confirm.closeButton().click();
 		addBankAccount.deleteBankButton().click();
 		saveButton.getSaveButton().click();
-//		EntryDialogContent close =$(EntryDialogContent.class).first();
-//		close.closeButton().click();
+		EntryDialogContent close =$(EntryDialogContent.class).first();
+		close.closeButton().click();
 	}
 
 	@Test
