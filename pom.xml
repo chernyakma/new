@@ -230,6 +230,7 @@
                         <include>**/AddNewBusinessSpdaIT.java</include>
                         <include>**/BaseLoginTest.java</include>
                         <include>**/AddFamilyIT.java</include>
+                        <include>**/WholeLifeIT.java</include>
                     </includes>
 
 
@@ -275,6 +276,7 @@
                         <include>AddNewBusinessSpdaIT.java</include>
                         <include>BaseLoginTest.java</include>
                         <include>AddFamilyIT.java</include>
+                        <include>WholeLifeIT.java</include>
                     </includes>
 
                     <trimStackTrace>false</trimStackTrace>

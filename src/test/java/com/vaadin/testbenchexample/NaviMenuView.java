@@ -94,6 +94,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
+	protected TestBenchElement transactionsLoan() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 38 );
+	}
 
 	protected TestBenchElement getReport() {
 
@@ -102,5 +106,9 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement getResult() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
+	}
+	protected TestBenchElement getPolicy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).first();
 	}
 }

@@ -125,7 +125,28 @@ public class EntryDialogContent extends TestBenchElement {
 	protected RadioButtonGroupElement defaultAddress (){
 		return $(TestBenchElement.class).id("RoleInfo" ).$(RadioButtonGroupElement.class).first();
 	}
+	protected TextFieldElement loanAmount (){
+		return $(TestBenchElement.class).id( "InputsSection" ).$( TextFieldElement.class).id( "AmountRequested" );
+	}
+	protected SelectElement disbursementMethod (){
+		return $(TestBenchElement.class).id( "InputsSection" ).$( SelectElement.class).id( "DisbursementMethod" );
+	}
+	protected SelectElement coverageName (){
+		return $(TestBenchElement.class).id( "BenefitsChangeSection" ).$( SelectElement.class).id( "CoverageProductCodeBeingUpdated" );
+	}
+	protected TextFieldElement faceAmount(){
+		return $ (TestBenchElement.class).id( "BenefitsChangeSection" ).$( TextFieldElement.class).id( "FaceAmount" );
+	}
+	protected ButtonElement addInsured(){
+		return $ (TestBenchElement.class).id("FamilyMemberSection").$("TABLE-COMPONENT").first().$(ButtonElement.class).first();
+	}
 
+	protected SelectElement partyGUID(){
+		return $ (TestBenchElement.class).id("S0").$(SelectElement.class).first();
+	}
+	protected DatePickerElement DOB (){
+		return $ (TestBenchElement.class).id("S0").$("SECTION-COMPONENT").first().$ (TestBenchElement.class).id("section").$(DatePickerElement.class).id("DateOfBirth");
+	}
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber,String phone2number,String email2){
 		firstName().sendKeys(firstName);
 		lastName().sendKeys(lastName);
