@@ -258,6 +258,7 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		addNewBusiness.getInsured().selectItemByIndex( 0 );
 		addNewBusiness.getOkButton().click();
 		IllustrationView illustration = $( IllustrationView.class ).first();
+
 		illustration.getAgentNumber().openPopup();
 		illustration.getAgentNumber().sendKeys("NM001");
 		Thread.sleep( 3_000 );
@@ -265,6 +266,8 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", illustration.getAgentNumber());
 		illustration.getAgentNumber().sendKeys( Keys.ENTER );
 		Assertions.assertEquals( "NM001 - Navy Mutual Default Agent", illustration.getAgentNumber().getSelectedText() );
+
+
 		illustration.getApplyButton().click();
 		VaadinConfirmDialogView getOkButton = $( VaadinConfirmDialogView.class ).first();
 		getOkButton.getSaveButton().click();

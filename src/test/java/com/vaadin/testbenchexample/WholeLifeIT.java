@@ -31,6 +31,8 @@ public class WholeLifeIT extends BaseLoginTest{
         selectTransaction.transactionType().selectByText( "Loan" );
         EntryDialogContent loan = $(EntryDialogContent.class).first();
         loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "500" );
+
+
         loan.disbursementMethod().selectByText( "Check Disbursement" );
         Assertions.assertEquals( "500.00",loan.loanAmount().getValue() );
         TransactionPopUpPageView getApproved = $(TransactionPopUpPageView.class).first();
@@ -51,7 +53,7 @@ public class WholeLifeIT extends BaseLoginTest{
         "Screenshot 2024-05-31 165800.png" ) ) );
         TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
         transactionPage.cancel().click();
- */
+*/
         NaviMenuView policy = $(NaviMenuView.class).first();
         policy.getPolicy().click();
         ScenarioView policyPage = $(ScenarioView.class).first();
@@ -91,7 +93,7 @@ public class WholeLifeIT extends BaseLoginTest{
         addRider.addInsured().click();
 
         EntryDialogContent addInsured = $(EntryDialogContent.class).last();
-        addInsured.partyGUID().selectItemByIndex(0);
+        addInsured.partyGUID().selectItemByIndex(2);
         addInsured.okButton().click();
 
  //       EntryDialogContent rider = $(EntryDialogContent.class).first();

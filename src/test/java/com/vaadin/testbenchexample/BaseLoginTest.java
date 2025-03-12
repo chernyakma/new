@@ -49,13 +49,13 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 
-*/
+
 
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-
+*/
 	@Before
 	public void setUp() {
 		// Set up the download directory using the current working directory
@@ -86,7 +86,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	WebDriverManager.chromedriver().setup();
 
 	// Optional: If you want to run the tests in headless mode (without a UI)
-	 options.addArguments("--headless", "--disable-gpu");
+//	 options.addArguments("--headless", "--disable-gpu");
 //	setDriver(new ChromeDriver());
 	// Initialize the ChromeDriver with the specified options and capabilities
 //	driver = new ChromeDriver(options);
@@ -107,13 +107,17 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	private void performLogin() {
 	//	getDriver().get("http://localhost:8080/navy_webui/");
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
-
+	//	getDriver().get("https://navy1.testbed.calcfocus.net/achieve/login");
 
 	//	$( TextFieldElement.class).first().setValue( "jBond");
 	//	$( PasswordFieldElement.class).first().setValue( "JBond007");
 	//	$( ButtonElement.class).first().click();
 		getDriver().get("https://test.navymutual.calcfocus.net/policyadmin/oauth2/login/cognito");
 	//	getDriver().get("https://master.navymutual.calcfocus.net/policyadmin");
+
+	//	WebElement usernameFieldElement = findElement( By.id( "vaadinLoginUsername" ));
+
+
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
 		usernameFieldElement.sendKeys( "helpdesk" );

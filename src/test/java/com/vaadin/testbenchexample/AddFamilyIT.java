@@ -42,6 +42,7 @@ public class AddFamilyIT extends BaseLoginTest {
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/familyInsured");
 		getDriver().get( "https://test.navymutual.calcfocus.net/policyadmin/familyInsured/" );
 	//	getDriver().get("https://master.navymutual.calcfocus.net/policyadmin/familyInsured");
+	//	getDriver().get("https://navy1.testbed.calcfocus.net/achieve/familyInsured/");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
 		family.getGender().selectItemByIndex( 0 );
@@ -140,12 +141,12 @@ public class AddFamilyIT extends BaseLoginTest {
 
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();
-		EntryDialogContent confirm =$(EntryDialogContent.class).first();
-		confirm.closeButton().click();
+//		EntryDialogContent confirm =$(EntryDialogContent.class).first();
+//		confirm.closeButton().click();
 		addBankAccount.deleteBankButton().click();
 		saveButton.getSaveButton().click();
-		EntryDialogContent close =$(EntryDialogContent.class).first();
-		close.closeButton().click();
+//		EntryDialogContent close =$(EntryDialogContent.class).first();
+//		close.closeButton().click();
 	}
 
 	@Test
@@ -167,15 +168,15 @@ public class AddFamilyIT extends BaseLoginTest {
 	setAddress.getState().selectByText( "VA" );
 	setAddress.getAddressType().selectItemByIndex( 1 );
 	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
-	setAddress.getDefaultMailing().click();
+//	setAddress.getDefaultMailing().click();
 //	setAddress.getDefaultBilling().click();
-//	setAddress.getDefaultResidence().click();
+	setAddress.getDefaultResidence().click();
 	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
 	Assertions.assertEquals( "74 River Street", setAddress.getLine1().getValue());
 	Assertions.assertEquals( "25 Main Street", setAddress.getLine2().getValue());
-	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+//	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
 //	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
-//	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 	setAddress.getOkButton().click();
 	addAddress.getSaveButton().click();
 	addAddress.getDeleteButton().click();
@@ -202,7 +203,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "VA" );
 		setAddress.getDefaultBilling().click();
-		setAddress.getDefaultResidence().click();
+	//	setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );

@@ -37,7 +37,7 @@ public class ApplicationView extends TestBenchElement {
 
 	protected ButtonElement downloadButton() {
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "document-page" ).first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$( TestBenchElement.class ).id( "componentResult" ).$( ButtonElement.class ).get( 1 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "document-page" ).first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$( TestBenchElement.class ).id( "componentResult" ).$( ButtonElement.class ).first();
 	}
 
 	protected ButtonElement saveButton() {
