@@ -16,99 +16,129 @@ import com.vaadin.testbench.elementsbase.Element;
 //@Attribute(name="class",value="navi-item page-item")
 public class NaviMenuView extends TestBenchElement {
 
+
+	//main
+
 	protected TestBenchElement getAddresses() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(5);
 	}
-
 	protected TestBenchElement getSuspense() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(25);
 	}
-	protected TestBenchElement getApplication() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 1 );
-	}
-	protected TestBenchElement beneficiaries() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 11 );
-	}
-
-	protected TestBenchElement getDocument() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
-	}
-//SPDA
-	protected TestBenchElement getDocumentSPDA() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
-	}
-
 	protected TestBenchElement getNewBusiness() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(30);
 	}
 
 	protected TestBenchElement getBankInformation() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 4 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(4);
 	}
-
-	protected TestBenchElement getFamily() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).last();
-	}
-
-	protected TestBenchElement checkIGO() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
-	}
-	//SPDA
-	protected TestBenchElement checkSpdaIGO() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 20 );
-	}
-	protected TestBenchElement suspenseSpda() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
-	}
-
 	protected TestBenchElement suspense() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 23 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(23);
 	}
 
-	protected TestBenchElement transactionsFPDR() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 43 );
+	//Policy
+	protected TestBenchElement getApplication() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(1);
 	}
-	protected TestBenchElement transactionsSPIA() {
+	protected TestBenchElement beneficiaries() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(11);
 	}
-	protected TestBenchElement transactionsWL() {
+	protected TestBenchElement getDocument() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 32 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(18);
+	}
+	protected TestBenchElement policyTransactions() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 36 );
+	}
+	protected TestBenchElement getFamily() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).last();
+	}
+	protected TestBenchElement checkIGO() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(25);
+	}
+	protected TestBenchElement otherRoles() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(13);
+	}
+	protected TestBenchElement payorAndOwner() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(4);
+	}
+	protected TestBenchElement getReport() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(7);
+	}
+
+	protected TestBenchElement getResult() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(5);
+	}
+
+	protected TestBenchElement getPolicy() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).first();
+	}
+
+
+	//SPDA
+	protected TestBenchElement getDocumentSPDA() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(13);
+	}
+	protected TestBenchElement checkSpdaIGO() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(20);
+	}
+
+	protected TestBenchElement suspenseSpda() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(18);
 	}
 	protected TestBenchElement transactionsSPDA() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(33);
 	}
+
+
+
+
+
+
+	// FPDR
+	protected TestBenchElement transactionsFPDR() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(43);
+	}
+
+	//SPIA
+	protected TestBenchElement transactionsSPIA() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(27);
+	}
+
+	//WL
+	protected TestBenchElement transactionsWL() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(32);
+	}
+
+
+
 	protected TestBenchElement transactionsLoan() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 38 );
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(38);
 	}
 
-	protected TestBenchElement getReport() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 7 );
-	}
-	protected TestBenchElement getResult() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
-	}
-	protected TestBenchElement getPolicy() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).first();
-	}
 }

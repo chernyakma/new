@@ -12,6 +12,21 @@ import com.vaadin.testbench.elementsbase.Element;
 @Element( "entry-dialog-content" )
 public class EntryDialogContent extends TestBenchElement {
 
+	// Main Buttons
+
+	protected ButtonElement okButton (){
+		return $(ButtonElement.class).first();
+	}
+	protected ButtonElement closeButton (){
+		return $(ButtonElement.class).last();
+	}
+
+	protected ButtonElement processButton (){
+		return $(ButtonElement.class).first();
+	}
+
+
+	// Bank
 	protected TextFieldElement getFinancialInstitutionName() {
 
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$( TextFieldElement.class ).id( "FinancialInstitutionName" );
@@ -21,7 +36,7 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$( TextFieldElement.class ).id( "AccountFirstName" );
 
-}
+    }
 	protected TextFieldElement getAccountLastName() {
 
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$( TextFieldElement.class ).id( "AccountLastName" );
@@ -44,13 +59,8 @@ public class EntryDialogContent extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$(SelectElement.class).id( "AccountType" );
 	}
 
-	protected ButtonElement okButton (){
-		return $(ButtonElement.class).first();
-	}
-	protected ButtonElement closeButton (){	return $(ButtonElement.class).last();}
 
-	protected ButtonElement processButton (){	return $(ButtonElement.class).first();}
-
+	// Notes
 	protected ButtonElement addNoteButton(){
 		return $(TestBenchElement.class).id( "mainContent" ).$( "note-list-view" ).first().$(ButtonElement.class).first();
 	}
@@ -72,6 +82,10 @@ public class EntryDialogContent extends TestBenchElement {
 	protected UploadElement uploadFileButton(){
 		return $(TestBenchElement.class).id( "mainContent" ).$( "note-list-view" ).first().$(TestBenchElement.class).id( "noteDetailDiv" ).$( "note-view" ).first().$(TestBenchElement.class).id( "uploadDiv" ).$(UploadElement.class).first();
 	}
+
+
+	// Suspense
+
 	protected SelectElement suspenseSource(){
 		return $(TestBenchElement.class).id( "mainContent" ).$(SelectElement.class).first();
 	}
@@ -125,12 +139,41 @@ public class EntryDialogContent extends TestBenchElement {
 	protected RadioButtonGroupElement defaultAddress (){
 		return $(TestBenchElement.class).id("RoleInfo" ).$(RadioButtonGroupElement.class).first();
 	}
+
+	// PremiumTransaction
+	protected TextFieldElement premiumAmount (){
+		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "AmountRequested" );
+	}
+	protected TextFieldElement billingMonths (){
+		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "BillingMonths" );
+	}
+
+	//0wner
+	protected SelectElement relationship(){
+		return $(TestBenchElement.class).id("RoleInfo" ).$(SelectElement.class).id("RelationshipType");
+	}
+
+	//other
+	protected SelectElement roleType(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RoleType");
+	}
+	protected SelectElement relation(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RelationToPrimaryInsured");
+	}
+	protected DatePickerElement effectiveDate (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(DatePickerElement.class).id("EffectiveDate");
+	}
+
+	// Loan
 	protected TextFieldElement loanAmount (){
 		return $(TestBenchElement.class).id( "InputsSection" ).$( TextFieldElement.class).id( "AmountRequested" );
 	}
 	protected SelectElement disbursementMethod (){
 		return $(TestBenchElement.class).id( "InputsSection" ).$( SelectElement.class).id( "DisbursementMethod" );
 	}
+
+	//Rider
+
 	protected SelectElement coverageName (){
 		return $(TestBenchElement.class).id( "BenefitsChangeSection" ).$( SelectElement.class).id( "CoverageProductCodeBeingUpdated" );
 	}
@@ -141,12 +184,17 @@ public class EntryDialogContent extends TestBenchElement {
 		return $ (TestBenchElement.class).id("FamilyMemberSection").$("TABLE-COMPONENT").first().$(ButtonElement.class).first();
 	}
 
+
 	protected SelectElement partyGUID(){
+
 		return $ (TestBenchElement.class).id("S0").$(SelectElement.class).first();
 	}
 	protected DatePickerElement DOB (){
 		return $ (TestBenchElement.class).id("S0").$("SECTION-COMPONENT").first().$ (TestBenchElement.class).id("section").$(DatePickerElement.class).id("DateOfBirth");
 	}
+
+
+
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber,String phone2number,String email2){
 		firstName().sendKeys(firstName);
 		lastName().sendKeys(lastName);

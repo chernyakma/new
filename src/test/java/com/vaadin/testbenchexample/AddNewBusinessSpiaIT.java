@@ -341,9 +341,11 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		VaadinConfirmDialogView confirmation = $( VaadinConfirmDialogView.class ).first();
 		confirmation.getSaveButton().click();
 		waitUntil(driver -> !transaction.progressBar().isDisplayed(), 80);
+
 		transaction.processInitialPremiumTransactionButton().click();
 		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
 		okButton.getSaveButton().click();
+		waitUntil(driver -> !transaction.progressBar().isDisplayed(), 80);
 		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
 		Assertions.assertEquals( "Annuitized",getPolicyStatus.policyStatus().getText() );
 

@@ -231,6 +231,7 @@
                         <include>**/BaseLoginTest.java</include>
                         <include>**/AddFamilyIT.java</include>
                         <include>**/WholeLifeIT.java</include>
+                        <include>PolicyBillIT.java</include>
                     </includes>
 
 
@@ -277,6 +278,7 @@
                         <include>BaseLoginTest.java</include>
                         <include>AddFamilyIT.java</include>
                         <include>WholeLifeIT.java</include>
+                        <include>PolicyBillIT.java</include>
                     </includes>
 
                     <trimStackTrace>false</trimStackTrace>
