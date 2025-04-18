@@ -111,6 +111,12 @@ public class ApplicationView extends TestBenchElement {
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 	//	File referenceFile = new File(System.getenv("REFERENCE_FILE"));
 		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceIllusSPIA.pdf");
+		System.out.println("Reference File Path: " + referenceFile.getAbsolutePath());
+		System.out.println("Reference File Exists: " + referenceFile.exists());
+
+		System.out.println("Downloaded File Path: " + downloadedFile.getAbsolutePath());
+		System.out.println("Downloaded File Exists: " + downloadedFile.exists());
+
 		boolean testPassed = false;
 		try {
 		boolean result = PdfComparator.comparePdfTextIgnoringDates( downloadedFile,referenceFile);
