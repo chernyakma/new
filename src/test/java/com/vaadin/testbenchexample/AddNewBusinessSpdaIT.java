@@ -292,14 +292,14 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
         String filePath = System.getenv("UPLOAD_FILE_PATH");
-        File fileToUpload = new File(filePath);
+        File fileToUpload = new File(filePath).getAbsoluteFile();;
         addNote.uploadFileButton().upload(fileToUpload);
 //		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
         String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
-        File fileToUploadApp = new File(filePathApp);
+        File fileToUploadApp = new File(filePathApp).getAbsoluteFile();;
         addNote.uploadFileButton().upload(fileToUploadApp);
 //		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf" ) );
 		Thread.sleep( 3_000 );
