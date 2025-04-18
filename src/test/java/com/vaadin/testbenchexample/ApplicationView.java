@@ -110,7 +110,7 @@ public class ApplicationView extends TestBenchElement {
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPIA.pdf");
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 	//	File referenceFile = new File(System.getenv("REFERENCE_FILE"));
-		File referenceFile = new File(System.getProperty("user.dir") + "/downloadFiles/ReferenceIllusSPIA.pdf");
+		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceIllusSPIA.pdf");
 		boolean testPassed = false;
 		try {
 		boolean result = PdfComparator.comparePdfTextIgnoringDates( downloadedFile,referenceFile);
@@ -146,7 +146,7 @@ public class ApplicationView extends TestBenchElement {
 
 //		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPDA.pdf");
 		//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
-		File referenceFile = new File(System.getProperty("user.dir") + "/downloadFiles/ReferenceIllusSPDA.pdf");
+		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceIllusSPDA.pdf");
 		boolean testPassed = false;
 		try {
 			boolean result = PdfComparator.comparePdfTextIgnoringDates( downloadedFile,referenceFile);
