@@ -306,7 +306,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
         String filePathS = System.getenv("UPLOAD_FILE_PATH_SALES");
-        File fileToUploadS = new File(filePathS);
+        File fileToUploadS = new File(filePathS).getAbsoluteFile();
         addNote.uploadFileButton().upload(fileToUploadS);
 //		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
 		Thread.sleep( 3_000 );
