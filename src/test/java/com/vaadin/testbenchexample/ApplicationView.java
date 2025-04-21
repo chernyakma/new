@@ -108,7 +108,6 @@ public class ApplicationView extends TestBenchElement {
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPIA.pdf");
-	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 	//	File referenceFile = new File(System.getenv("REFERENCE_FILE"));
 		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceIllusSPIA.pdf");
 		System.out.println("Reference File Path: " + referenceFile.getAbsolutePath());
@@ -151,7 +150,7 @@ public class ApplicationView extends TestBenchElement {
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
 //		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPDA.pdf");
-		//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
+
 		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceIllusSPDA.pdf");
 		boolean testPassed = false;
 		try {

@@ -99,30 +99,19 @@ public class AddNewBusinessFpraIT extends BaseLoginTest {
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
 //		System.getenv().forEach((key, value) -> System.out.println(key + ": " + value));
 		String filePath = System.getenv("UPLOAD_FILE_PATH");
-//		System.out.println("UPLOAD_FILE_PATH: " + filePath);
 		File fileToUpload = new File(filePath);
-//		System.out.println("Resolved file path: " + fileToUpload.getAbsolutePath());
-//		System.out.println("File exists: " + fileToUpload.exists());
 		addNote.uploadFileButton().upload(fileToUpload);
 
 
 //		addNote.uploadFileButton().upload(new File("src\\test\\resources\\Annuity Questionnare.pdf"));
 //		addNote.uploadFileButton().upload(new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\src\\test\\resources\\Annuity Questionnare.pdf"));
 
-//		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Documents\\correspondence_CondolenceLetterDeferredAnnuity_20240524172728195.pdf" ) );
 		Thread.sleep( 3_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
 
 		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
 		File fileToUploadApp = new File(filePathApp);
-//		System.out.println("UPLOAD_FILE_PATH_App: " + filePathApp);
-//		System.out.println("Resolved file path: " + fileToUploadApp.getAbsolutePath());
-//		System.out.println("File exists: " + fileToUploadApp.exists());
-
-//		if (!fileToUploadApp.exists()) {
-//			throw new FileNotFoundException("File not found: " + fileToUploadApp.getAbsolutePath());
-//		}
 
 		addNote.uploadFileButton().upload(fileToUploadApp);
 

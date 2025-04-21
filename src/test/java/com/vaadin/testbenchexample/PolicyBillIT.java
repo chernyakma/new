@@ -33,10 +33,7 @@ public class PolicyBillIT extends BaseLoginTest{
         String originalDateText = payPremium.policyPaidToDate().getText();
         initialPaidToDate = parseFlexibleDate(originalDateText);
 
-        //  Use flexible parser for input field too
-        //      String currentDateString = payPremium.date().getInputValue();
-        //       LocalDate currentDate = parseFlexibleDate(currentDateString);
-        //       LocalDate newDate = currentDate.plusMonths(1);
+
         LocalDate originalDate = parseFlexibleDate(originalDateText);
         LocalDate newDate = originalDate.plusDays(1);
         payPremium.date().setDate(newDate);
@@ -46,7 +43,6 @@ public class PolicyBillIT extends BaseLoginTest{
         cycleUp.getSaveButton().click();
         waitUntil(driver -> !payPremium.progressBar().isDisplayed(), 80);
         String updatedText = payPremium.policyPaidToDate().getText();
-//        System.out.println("Raw date string: '" + dateString + "'");
 
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
