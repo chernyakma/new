@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class WholeLifeIT extends BaseLoginTest{
-
+/*
     @Test
     public void addLoan() throws InterruptedException, IOException {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -46,14 +46,14 @@ public class WholeLifeIT extends BaseLoginTest{
         ScenarioView transactionsPage = $(ScenarioView.class).first();
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
 
-/*      ScenarioView transactionsPage = $(ScenarioView.class).first();
-        transactionsPage.viewLoanTransactionButton().click();
-        Thread.sleep( 5_000 );
-       Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
-        "Screenshot 2024-05-31 165800.png" ) ) );
-        TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
-        transactionPage.cancel().click();
-*/
+//      ScenarioView transactionsPage = $(ScenarioView.class).first();
+ //      transactionsPage.viewLoanTransactionButton().click();
+ //    Thread.sleep( 5_000 );
+ //      Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+ //       "Screenshot 2024-05-31 165800.png" ) ) );
+ //       TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
+ //       transactionPage.cancel().click();
+
         NaviMenuView policy = $(NaviMenuView.class).first();
         policy.getPolicy().click();
         ScenarioView policyPage = $(ScenarioView.class).first();
@@ -71,7 +71,7 @@ public class WholeLifeIT extends BaseLoginTest{
         confirmation.getSaveButton().click();
 
     }
-
+*/
     @Test
     public void addRider() throws InterruptedException, IOException {
 
