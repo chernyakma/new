@@ -93,7 +93,7 @@ public class WholeLifeIT extends BaseLoginTest{
         addRider.addInsured().click();
 
         EntryDialogContent addInsured = $(EntryDialogContent.class).last();
-        addInsured.partyGUID().selectItemByIndex(2);
+        addInsured.partyGUID().selectItemByIndex(3);
         addInsured.okButton().click();
          TransactionPopUpPageView notes = $(TransactionPopUpPageView.class).first();
         notes.note().sendKeys( "123" );
