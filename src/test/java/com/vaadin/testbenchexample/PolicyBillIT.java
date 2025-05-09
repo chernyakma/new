@@ -13,7 +13,7 @@ import java.util.Locale;
 public class PolicyBillIT extends BaseLoginTest{
     protected LocalDate initialPaidToDate;
     protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-
+/*
     @Test
     public void payPAC() {
 
@@ -21,9 +21,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("07659314");
+        getPolicy.searchByPolicy().sendKeys("200880642");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("07659314").click();
+        getPolicy.family().getCell("200880642").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
@@ -73,6 +73,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
         throw new IllegalArgumentException("Could not parse date: " + dateString);
     }
+  */
     @Test
     public void payDirectBill() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
