@@ -73,7 +73,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
         throw new IllegalArgumentException("Could not parse date: " + dateString);
     }
-  */
+*/
     @Test
     public void payDirectBill() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
