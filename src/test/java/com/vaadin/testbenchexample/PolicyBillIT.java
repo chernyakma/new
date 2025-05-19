@@ -36,7 +36,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
 
         LocalDate originalDate = parseFlexibleDate(originalDateText);
-        LocalDate newDate = originalDate.plusDays(1);
+        LocalDate newDate = originalDate.plusDays(15);
         if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
             newDate = newDate.plusDays(2);
         } else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
