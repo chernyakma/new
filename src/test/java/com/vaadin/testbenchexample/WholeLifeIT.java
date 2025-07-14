@@ -78,9 +78,9 @@ public class WholeLifeIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys("69432987" );
+        getPolicy.searchByPolicy().sendKeys("69427999" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "69432987" ).click();
+        getPolicy.family().getCell( "69427999" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
         transaction.transactionsLoan().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -93,7 +93,7 @@ public class WholeLifeIT extends BaseLoginTest{
         addRider.addInsured().click();
 
         EntryDialogContent addInsured = $(EntryDialogContent.class).last();
-        addInsured.partyGUID().selectItemByIndex(3);
+        addInsured.partyGUID().selectItemByIndex(2);
         addInsured.okButton().click();
          TransactionPopUpPageView notes = $(TransactionPopUpPageView.class).first();
         notes.note().sendKeys( "123" );
@@ -105,7 +105,7 @@ public class WholeLifeIT extends BaseLoginTest{
         ScenarioView transactionsPage = $(ScenarioView.class).first();
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 60);
 
-        Assertions.assertEquals( "$220.26",transactionsPage.modalPremium().getText() );
+        Assertions.assertEquals( "$257.83",transactionsPage.modalPremium().getText() );
 
 /*		ScenarioView transactionsPage = $(ScenarioView.class).first();
 		transactionsPage.viewLoanTransactionButton().click();

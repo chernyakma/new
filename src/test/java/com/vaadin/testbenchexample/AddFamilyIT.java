@@ -168,14 +168,14 @@ public class AddFamilyIT extends BaseLoginTest {
 	setAddress.getState().selectByText( "VA" );
 	setAddress.getAddressType().selectItemByIndex( 1 );
 	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
-	setAddress.getDefaultMailing().click();
-//	setAddress.getDefaultBilling().click();
+//	setAddress.getDefaultMailing().click();
+	setAddress.getDefaultBilling().click();
 //	setAddress.getDefaultResidence().click();
 	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
 	Assertions.assertEquals( "74 River Street", setAddress.getLine1().getValue());
 	Assertions.assertEquals( "25 Main Street", setAddress.getLine2().getValue());
-	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
-//	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
+//	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 //	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 	setAddress.getOkButton().click();
 	addAddress.getSaveButton().click();
@@ -202,12 +202,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.clearAddress();
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "VA" );
-		setAddress.getDefaultBilling().click();
-	//	setAddress.getDefaultResidence().click();
+	//	setAddress.getDefaultBilling().click();
+		setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );
-		Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
+		Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 		Assertions.assertEquals( "23503",setAddress.getZip().getValue() );
 		setAddress.getCancelButton().click();
 	//	setAddress.getEditOkButton().click();
@@ -313,7 +313,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		NaviMenuView ownerAndPayor = $(NaviMenuView.class).first();
 		ownerAndPayor.payorAndOwner().click();
 		ScenarioView changeOwner = $(ScenarioView.class).first();
-		changeOwner.ownerGUID().selectByText("EMZLHDSEVO M AMLUMDFRQH (***-**-7154)");
+		changeOwner.ownerGUID().selectByText("TYLIKAUZOU M TZQITTONWV (***-**-4083)");
 
 		changeOwner.getSaveButton().click();
 		VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
@@ -389,6 +389,11 @@ public class AddFamilyIT extends BaseLoginTest {
 		deleteRole.getDeleteFamilyOther().click();
 		VaadinConfirmDialogView save = $(VaadinConfirmDialogView.class).first();
 		save.getSaveButton().click();
+		NaviMenuView deleteAddress = $(NaviMenuView.class).first();
+		deleteAddress.getAddresses().click();
+		ScenarioView addresses = $(ScenarioView.class).first();
+		addresses.getDeleteAddressButton().click();
+		addresses.getSaveButton().click();
 	}
 
 /*
