@@ -82,7 +82,7 @@ public class WholeLifeIT extends BaseLoginTest{
         getPolicy.searchButton().click();
         getPolicy.family().getCell( "69427999" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
-        transaction.transactionsLoan().click();
+        transaction.policyTransactions().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();
         loanTransaction.addTransactionButton().click();
         //		EntryDialogContent selectTransaction = $(EntryDialogContent.class).first();
