@@ -83,7 +83,7 @@ public class PolicyBillIT extends BaseLoginTest{
         getPolicy.searchButton().click();
         getPolicy.family().getCell("07659295").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
-        transaction.policyTransactions().click();
+        transaction.policyTermTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
         String originalDateText = premiumTransaction.policyPaidToDate().getText();
         initialPaidToDate = LocalDate.parse(originalDateText, formatter);
