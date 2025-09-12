@@ -292,7 +292,7 @@ public class AddNewBusinessSpdaIT extends BaseLoginTest {
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
         String filePath = System.getenv("UPLOAD_FILE_PATH");
-        File fileToUpload = new File(filePath).getAbsoluteFile();;
+        File fileToUpload = new File(filePath).getAbsoluteFile();
         addNote.uploadFileButton().upload(fileToUpload);
 //		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
 		Thread.sleep( 3_000 );

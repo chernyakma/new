@@ -280,7 +280,7 @@ public class AddNewBusinessSpiaIT extends BaseLoginTest {
 		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
 		addNote.addNoteButton().click();
 		addNote.noteText().setValue( "document 1" );
-		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
+		addNote.expiresDate().setDate( LocalDate.of( 2025, 12, 12 ) );
 		addNote.attachButton().click();
         addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
         String filePath = System.getenv("UPLOAD_FILE_PATH");

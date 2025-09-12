@@ -187,6 +187,12 @@ public class ScenarioView extends TestBenchElement {
 	protected SelectElement ownerGUID() {
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("OwnerSection").$(SelectElement.class).id("OwnerGUID");
 	}
+
+	//policy
+	protected TextFieldElement insuredName (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$(TestBenchElement.class).id( "InsuredSection" ).$(TextFieldElement.class).id( "PrimaryInsuredFullName" );
+	}
+
 }
 
 
