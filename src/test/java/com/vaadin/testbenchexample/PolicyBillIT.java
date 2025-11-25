@@ -79,11 +79,11 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItem().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("07659295");
+        getPolicy.searchByPolicy().sendKeys("201088848");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("07659295").click();
+        getPolicy.family().getCell("201088848").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
-        transaction.policyTermTransactions().click();
+        transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
         String originalDateText = premiumTransaction.policyPaidToDate().getText();
         initialPaidToDate = LocalDate.parse(originalDateText, formatter);
@@ -91,7 +91,7 @@ public class PolicyBillIT extends BaseLoginTest{
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText("Premium");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
-		premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "114.45");
+		premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "119.25");
         TransactionPopUpPageView notes = $(TransactionPopUpPageView.class).first();
         notes.note().sendKeys( "123" );
 //		premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
