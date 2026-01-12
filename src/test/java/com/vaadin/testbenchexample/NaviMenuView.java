@@ -93,6 +93,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).first();
 	}
+	protected TestBenchElement claims() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$(IconElement.class).get( 24 );
+	}
 
 
 	//SPDA
@@ -142,6 +146,24 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement transactionsLoan() {
 
 		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(38);
+	}
+	//claims
+
+	protected TestBenchElement processClaim() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$(IconElement.class).get( 24 );
+	}
+	protected TestBenchElement makePayment() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$(IconElement.class).get( 29 );
+	}
+	protected TestBenchElement policy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$(IconElement.class).get( 21 );
+	}
+	protected TestBenchElement claimPolicy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$(IconElement.class).get( 50 );
 	}
 
 
