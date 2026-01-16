@@ -206,7 +206,7 @@ public class ClaimsIT extends BaseLoginTest{
         reason.okButton().click();
         ScenarioView claimStatus = $(ScenarioView.class).first();
         Assertions.assertEquals("Denied", claimStatus.claimStatus().getText());
-        Assertions.assertEquals("Active",claimStatus.policyStatus().getText());
+        Assertions.assertEquals("Active",claimStatus.policyClaimStatus().getText());
 
     }
 
