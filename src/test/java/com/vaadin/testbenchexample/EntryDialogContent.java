@@ -236,6 +236,10 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "Type");
 	}
+	protected SelectElement getBenefitPeriod() {
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "BenefitPeriodMonths");
+	}
 	protected SelectElement getPayee() {
 
 		return $( TestBenchElement.class ).id( "S1").$( SelectElement.class ).id( "PayeeGUID");
