@@ -3,6 +3,8 @@ import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.w3c.dom.html.HTMLTableSectionElement;
 
@@ -13,6 +15,8 @@ import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.elementsbase.Element;
 
 import javassist.bytecode.stackmap.TypeData;
+
+import java.util.List;
 
 @Element( "scenario-view" )
 
@@ -124,8 +128,33 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement reverseActivateTransactionButtonSPIA(){
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( TestBenchElement.class ).id( "content" ).$( "search-component" ).first().$( ButtonElement.class ).get( 3 );
 	}
-	protected WebElement policyStatus() { return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 3 );
-	}
+//	protected WebElement policyStatus() { return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 3 );
+//	}
+protected WebElement policyStatus() {
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+	return (WebElement) js.executeScript(
+		//	"const sv = document.querySelector('scenario-view');" +
+		//			"if (!sv || !sv.shadowRoot) return null;" +
+
+					"const sc = sv.shadowRoot.querySelector('scenario-component');" +
+					"if (!sc || !sc.shadowRoot) return null;" +
+
+					"const st = sc.shadowRoot.querySelector('summary-table#summaryTable');" +
+					"if (!st || !st.shadowRoot) return null;" +
+
+					"const columns = st.shadowRoot.querySelectorAll('.summary-column');" +
+					"for (const col of columns) {" +
+					"  const header = col.querySelector('.summary-column-header');" +
+					"  if (header && header.textContent.trim() === 'Policy Status') {" +
+					"    return col.querySelector('.summary-column-value');" +
+					"  }" +
+					"}" +
+					"return null;"
+	);
+}
+
+
 	protected WebElement policyPaidToDate() {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 8 );
 	}
