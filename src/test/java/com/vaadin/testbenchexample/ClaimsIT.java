@@ -166,11 +166,11 @@ public class ClaimsIT extends BaseLoginTest{
         createClaim.getContact().selectItemByIndex(0);
         createClaim.saveAndOpenButton().click();
         menu.processClaim().click();
-        EntryDialogContent event = $(EntryDialogContent.class).first();
+        EntryDialogContent event = $(EntryDialogContent.class).last();
         event.getEventType().selectByText("Decision");
         event.okButton().click();
         menu.makePayment().click();
-        EntryDialogContent payment = $(EntryDialogContent.class).first();
+        EntryDialogContent payment = $(EntryDialogContent.class).last();
         payment.getPayee().selectItemByIndex(0);
         payment.okButton().click();
         menu.claimPolicy().click();
