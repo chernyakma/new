@@ -45,7 +45,7 @@ public class AddFamilyIT extends BaseLoginTest {
 	//	getDriver().get("https://navy1.testbed.calcfocus.net/achieve/familyInsured/");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
-		family.getGender().selectItemByIndex( 0 );
+		family.getGender().selectItemByIndex( 1 );
 		family.getDateOfBirth().setDate( LocalDate.of( 1960, 10, 15 ) );
 		family.getTobaccoUse().selectByText( "Tobacco" );
 		family.getMilitaryStatus().selectItemByIndex( 1 );
@@ -84,12 +84,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.getRelationship().selectByText( "Spouse/Partner" );
 		family.addSpouse(  );
-		family.getGender().selectItemByIndex( 1 );
+		family.getGender().selectItemByIndex( 0 );
 		family.getDateOfBirth().setDate( LocalDate.of( 1965, 01, 05 ) );
 		family.getNonTobacco().doubleClick();
 		family.getMilitaryStatus().selectItemByIndex( 2 );
 		family.getMilitaryBranch().selectItemByIndex( 2 );
-		family.getMilitaryRank().selectByText( "General" );
+		family.getMilitaryRank().selectByText( "Cadet" );
 		family.getMilitaryMemberStatus().selectItemByIndex( 2 );
 		family.getVipStatus().click();
 		family.getVaultDocuments().click();
@@ -165,13 +165,13 @@ public class AddFamilyIT extends BaseLoginTest {
 	AddressView setAddress=$ (AddressView.class).first();
 	setAddress.getCountry().selectByText( "USA" );
 	setAddress.address( "74 River Street","25 Main Street","Norfolk","23503" );
-	setAddress.getState().selectByText( "VA" );
-	setAddress.getAddressType().selectItemByIndex( 1 );
+	setAddress.getState().selectByText( "Virginia" );
+	setAddress.getAddressType().selectItemByIndex( 0 );
 	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
 	setAddress.getDefaultMailing().click();
 //	setAddress.getDefaultBilling().click();
 //	setAddress.getDefaultResidence().click();
-	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
+	Assertions.assertEquals( "Virginia", setAddress.getState().getSelectedText());
 	Assertions.assertEquals( "74 River Street", setAddress.getLine1().getValue());
 	Assertions.assertEquals( "25 Main Street", setAddress.getLine2().getValue());
 	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
@@ -201,10 +201,10 @@ public class AddFamilyIT extends BaseLoginTest {
 		AddressView setAddress = $( AddressView.class ).first();
 		setAddress.clearAddress();
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
-		setAddress.getState().selectByText( "VA" );
+		setAddress.getState().selectByText( "Virginia" );
 	//	setAddress.getDefaultBilling().click();
 		setAddress.getDefaultResidence().click();
-		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
+		Assertions.assertEquals( "Virginia", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );
 		Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
@@ -335,7 +335,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		NaviMenuView ownerAndPayor = $(NaviMenuView.class).first();
 		ownerAndPayor.payorAndOwner().click();
 		ScenarioView changeOwner = $(ScenarioView.class).first();
-		changeOwner.ownerGUID().selectByText("LJMKOPJXNU M HKGAIOUGVN (***-**-4720)");
+		changeOwner.ownerGUID().selectByText("LJMKOPJXNU M HKGAIOUGVN (447344720)");
 
 		changeOwner.getSaveButton().click();
 		VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
@@ -405,7 +405,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		Thread.sleep(3_000);
 		AddressView address = $(AddressView.class).first();
 		address.address("4 Liberty Street", "23 Forest Street", "Norfolk", "23503");
-		address.getState().selectByText("VA");
+		address.getState().selectByText("Virginia");
 		address.getAddressType().selectByText("Mailing");
 		Assertions.assertEquals("Mailing", address.getAddressType().getSelectedText());
 		address.getOkButton().click();

@@ -31,7 +31,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected ButtonElement getAddBeneButton() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("BeneficiaryTable").$(ButtonElement.class).get(1);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("BeneficiaryTable").$(ButtonElement.class).get(2);
 
 	}
 	protected ButtonElement addMemberButton() {
@@ -85,7 +85,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected ButtonElement getDeleteFamilyOther() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(7);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(8);
 	}
 	protected ButtonElement getDeleteFamilyBeneButton() {
 
@@ -128,14 +128,17 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement reverseActivateTransactionButtonSPIA(){
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "transactions-view-page" ).first().$( TestBenchElement.class ).id( "content" ).$( "search-component" ).first().$( ButtonElement.class ).get( 3 );
 	}
+	protected ButtonElement reverseThirdTransactionButton() {
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("transactions-view-page").first().$(TestBenchElement.class).id("content").$("search-component").first().$(ButtonElement.class).get(5);
+	}
 //	protected WebElement policyStatus() { return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 3 );
 //	}
 protected WebElement policyStatus() {
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
 	return (WebElement) js.executeScript(
-		//	"const sv = document.querySelector('scenario-view');" +
-		//			"if (!sv || !sv.shadowRoot) return null;" +
+			"const sv = document.querySelector('scenario-view');" +
+					"if (!sv || !sv.shadowRoot) return null;" +
 
 					"const sc = sv.shadowRoot.querySelector('scenario-component');" +
 					"if (!sc || !sc.shadowRoot) return null;" +
