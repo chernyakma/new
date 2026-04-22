@@ -152,6 +152,14 @@ public class ClaimsIT extends BaseLoginTest{
         getPolicy.searchButton().click();
         getPolicy.family().getCell("426000008").click();
         NaviMenuView menu = $(NaviMenuView.class).first();
+        menu.policyTransactions().click();
+        ScenarioView processEffDate = $(ScenarioView.class).first();
+        processEffDate.date().setDate(LocalDate.now());
+        processEffDate.cycle().click();
+        VaadinConfirmDialogView cycleUp = $(VaadinConfirmDialogView.class).first();
+        cycleUp.getSaveButton().click();
+        waitUntil(driver -> !processEffDate.progressBar().isDisplayed(), 80);
+
         menu.claims().click();
         ScenarioView claims = $(ScenarioView.class).first();
         claims.getAddClaimsButton().click();
@@ -221,6 +229,13 @@ public class ClaimsIT extends BaseLoginTest{
         getPolicy.searchButton().click();
         getPolicy.family().getCell("06217685").click();
         NaviMenuView menu = $(NaviMenuView.class).first();
+        menu.policyTransactions().click();
+        ScenarioView processEffDate = $(ScenarioView.class).first();
+        processEffDate.date().setDate(LocalDate.now());
+        processEffDate.cycle().click();
+        VaadinConfirmDialogView cycleUp = $(VaadinConfirmDialogView.class).first();
+        cycleUp.getSaveButton().click();
+        waitUntil(driver -> !processEffDate.progressBar().isDisplayed(), 80);
         menu.claims().click();
         ScenarioView claims = $(ScenarioView.class).first();
         claims.getAddClaimsButton().click();
@@ -294,6 +309,13 @@ public class ClaimsIT extends BaseLoginTest{
         getPolicy.searchButton().click();
         getPolicy.family().getCell("06211567").click();
         NaviMenuView menu = $(NaviMenuView.class).first();
+        menu.policyTransactions().click();
+        ScenarioView processEffDate = $(ScenarioView.class).first();
+        processEffDate.date().setDate(LocalDate.now());
+        processEffDate.cycle().click();
+        VaadinConfirmDialogView cycleUp = $(VaadinConfirmDialogView.class).first();
+        cycleUp.getSaveButton().click();
+        waitUntil(driver -> !processEffDate.progressBar().isDisplayed(), 80);
         menu.claims().click();
         ScenarioView claims = $(ScenarioView.class).first();
         claims.getAddClaimsButton().click();

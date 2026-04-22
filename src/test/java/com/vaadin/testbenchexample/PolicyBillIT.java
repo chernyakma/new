@@ -21,12 +21,12 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("200880642");
+        getPolicy.searchByPolicy().sendKeys("325011239");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("200880642").click();
+        getPolicy.family().getCell("325011239").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
-        transaction.policyTransactions().click();
+        transaction.policyTermTransactions().click();
 
         ScenarioView payPremium = $(ScenarioView.class).first();
 
@@ -36,7 +36,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
 
         LocalDate originalDate = parseFlexibleDate(originalDateText);
-        LocalDate newDate = originalDate.plusDays(15);
+        LocalDate newDate = originalDate.plusDays(5);
         if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
             newDate = newDate.plusDays(2);
         } else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
